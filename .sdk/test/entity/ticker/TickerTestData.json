@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "ticker": {
+      "TICKER00": {
+        "beta_value": 110,
+        "circulating_supply": 111,
+        "first_data_at": "s70",
+        "id": "TICKER00",
+        "last_updated": "s72",
+        "max_supply": 115,
+        "name": "s74",
+        "quote": {},
+        "rank": "s76",
+        "symbol": "s77",
+        "total_supply": 120
+      },
+      "TICKER01": {
+        "beta_value": 220,
+        "circulating_supply": 221,
+        "first_data_at": "sde",
+        "id": "TICKER01",
+        "last_updated": "se0",
+        "max_supply": 225,
+        "name": "se2",
+        "quote": {},
+        "rank": "se4",
+        "symbol": "se5",
+        "total_supply": 230
+      },
+      "TICKER02": {
+        "beta_value": 330,
+        "circulating_supply": 331,
+        "first_data_at": "s14c",
+        "id": "TICKER02",
+        "last_updated": "s14e",
+        "max_supply": 335,
+        "name": "s150",
+        "quote": {},
+        "rank": "s152",
+        "symbol": "s153",
+        "total_supply": 340
+      }
+    }
+  },
+  "new": {
+    "ticker": {
+      "ticker_ref01": {
+        "beta_value": 440,
+        "circulating_supply": 441,
+        "first_data_at": "s1ba",
+        "last_updated": "s1bc",
+        "max_supply": 445,
+        "name": "s1be",
+        "quote": {},
+        "rank": "s1c0",
+        "symbol": "s1c1",
+        "total_supply": 450
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+# Entity: ticker
+
+main: kit: entity: ticker: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "beta_value"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "circulating_supply"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "first_data_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "max_supply"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "quote"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "rank"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "symbol"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "total_supply"
+      req: false
+      type: "`$NUMBER`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "ticker"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "USD"
+                kind: "query"
+                name: "quote"
+                orig: "quote"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/tickers"
+          parts: [
+            "tickers"
+          ]
+          select: {
+            exist: [
+              "quote"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

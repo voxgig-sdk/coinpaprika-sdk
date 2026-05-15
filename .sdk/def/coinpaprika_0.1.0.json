@@ -1,0 +1,368 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Coinpaprika API",
+    "description": "Provides cryptocurrency market data including prices, market cap, volume, and more. Access historical data and real-time updates.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Coinpaprika API",
+      "url": "https://api.coinpaprika.com"
+    },
+    "termsOfService": "https://coinpaprika.com/terms",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.coinpaprika.com/v1",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/coins": {
+      "get": {
+        "summary": "List coins",
+        "description": "Returns a list of all active cryptocurrencies available on Coinpaprika.",
+        "operationId": "getCoins",
+        "tags": [
+          "Coins"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of coins",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Coin"
+                  }
+                },
+                "example": [
+                  {
+                    "id": "btc-bitcoin",
+                    "name": "Bitcoin",
+                    "symbol": "BTC",
+                    "rank": 1,
+                    "is_new": false,
+                    "is_active": true,
+                    "type": "coin"
+                  }
+                ]
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/tickers": {
+      "get": {
+        "summary": "Get tickers for all coins",
+        "description": "Returns price data, market cap, volume, and other market information for all active cryptocurrencies.",
+        "operationId": "getTickers",
+        "tags": [
+          "Tickers"
+        ],
+        "parameters": [
+          {
+            "name": "quotes",
+            "in": "query",
+            "description": "Comma separated list of quotes to return (e.g., USD,BTC,ETH)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "USD"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with ticker data for all coins",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Ticker"
+                  }
+                },
+                "example": [
+                  {
+                    "id": "btc-bitcoin",
+                    "name": "Bitcoin",
+                    "symbol": "BTC",
+                    "rank": 1,
+                    "circulating_supply": 19000000,
+                    "total_supply": 21000000,
+                    "max_supply": 21000000,
+                    "beta_value": 1,
+                    "first_data_at": "2010-07-17T00:00:00Z",
+                    "last_updated": "2023-10-01T12:00:00Z",
+                    "quotes": {
+                      "USD": {
+                        "price": 50000,
+                        "volume_24h": 30000000000,
+                        "volume_24h_change_24h": 5.5,
+                        "market_cap": 950000000000,
+                        "market_cap_change_24h": 2.3,
+                        "percent_change_15m": 0.5,
+                        "percent_change_30m": 0.8,
+                        "percent_change_1h": 1.2,
+                        "percent_change_6h": 2.5,
+                        "percent_change_12h": 3.1,
+                        "percent_change_24h": 4.5,
+                        "percent_change_7d": 8.2,
+                        "percent_change_30d": 15.3,
+                        "percent_change_1y": 120.5,
+                        "ath_price": 69000,
+                        "ath_date": "2021-11-10T00:00:00Z",
+                        "percent_from_price_ath": -27.5
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimitError"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Coin": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the coin"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the cryptocurrency"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Ticker symbol of the cryptocurrency"
+          },
+          "rank": {
+            "type": "integer",
+            "description": "Market cap rank"
+          },
+          "is_new": {
+            "type": "boolean",
+            "description": "Indicates if the coin is new"
+          },
+          "is_active": {
+            "type": "boolean",
+            "description": "Indicates if the coin is active"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of cryptocurrency (coin or token)"
+          }
+        }
+      },
+      "Ticker": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the coin"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the cryptocurrency"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Ticker symbol of the cryptocurrency"
+          },
+          "rank": {
+            "type": "integer",
+            "description": "Market cap rank"
+          },
+          "circulating_supply": {
+            "type": "number",
+            "description": "Circulating supply of the coin"
+          },
+          "total_supply": {
+            "type": "number",
+            "description": "Total supply of the coin"
+          },
+          "max_supply": {
+            "type": "number",
+            "description": "Maximum supply of the coin",
+            "nullable": true
+          },
+          "beta_value": {
+            "type": "number",
+            "description": "Beta value for the coin"
+          },
+          "first_data_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date of first data availability"
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last update timestamp"
+          },
+          "quotes": {
+            "type": "object",
+            "description": "Price and market data in different quote currencies",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Quote"
+            }
+          }
+        }
+      },
+      "Quote": {
+        "type": "object",
+        "properties": {
+          "price": {
+            "type": "number",
+            "description": "Current price"
+          },
+          "volume_24h": {
+            "type": "number",
+            "description": "24-hour trading volume"
+          },
+          "volume_24h_change_24h": {
+            "type": "number",
+            "description": "24-hour volume change percentage"
+          },
+          "market_cap": {
+            "type": "number",
+            "description": "Market capitalization"
+          },
+          "market_cap_change_24h": {
+            "type": "number",
+            "description": "24-hour market cap change percentage"
+          },
+          "percent_change_15m": {
+            "type": "number",
+            "description": "Price change percentage in last 15 minutes"
+          },
+          "percent_change_30m": {
+            "type": "number",
+            "description": "Price change percentage in last 30 minutes"
+          },
+          "percent_change_1h": {
+            "type": "number",
+            "description": "Price change percentage in last 1 hour"
+          },
+          "percent_change_6h": {
+            "type": "number",
+            "description": "Price change percentage in last 6 hours"
+          },
+          "percent_change_12h": {
+            "type": "number",
+            "description": "Price change percentage in last 12 hours"
+          },
+          "percent_change_24h": {
+            "type": "number",
+            "description": "Price change percentage in last 24 hours"
+          },
+          "percent_change_7d": {
+            "type": "number",
+            "description": "Price change percentage in last 7 days"
+          },
+          "percent_change_30d": {
+            "type": "number",
+            "description": "Price change percentage in last 30 days"
+          },
+          "percent_change_1y": {
+            "type": "number",
+            "description": "Price change percentage in last 1 year"
+          },
+          "ath_price": {
+            "type": "number",
+            "description": "All-time high price",
+            "nullable": true
+          },
+          "ath_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date of all-time high",
+            "nullable": true
+          },
+          "percent_from_price_ath": {
+            "type": "number",
+            "description": "Percentage from all-time high price",
+            "nullable": true
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Bad request - Invalid parameters",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "RateLimitError": {
+        "description": "Rate limit exceeded",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Internal server error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Coins",
+      "description": "Operations related to cryptocurrency information"
+    },
+    {
+      "name": "Tickers",
+      "description": "Operations related to cryptocurrency market data and prices"
+    }
+  ]
+}

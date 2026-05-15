@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "coin": {
+      "COIN00": {
+        "id": "COIN00",
+        "is_active": false,
+        "is_new": true,
+        "name": "s49",
+        "rank": "s4a",
+        "symbol": "s4b",
+        "type": "s4c"
+      },
+      "COIN01": {
+        "id": "COIN01",
+        "is_active": false,
+        "is_new": true,
+        "name": "s8f",
+        "rank": "s90",
+        "symbol": "s91",
+        "type": "s92"
+      },
+      "COIN02": {
+        "id": "COIN02",
+        "is_active": false,
+        "is_new": true,
+        "name": "sd5",
+        "rank": "sd6",
+        "symbol": "sd7",
+        "type": "sd8"
+      }
+    }
+  },
+  "new": {
+    "coin": {
+      "coin_ref01": {
+        "is_active": false,
+        "is_new": true,
+        "name": "s11b",
+        "rank": "s11c",
+        "symbol": "s11d",
+        "type": "s11e"
+      }
+    }
+  }
+}

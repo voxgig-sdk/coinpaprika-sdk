@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Coinpaprika API"
+        url: "https://api.coinpaprika.com"
+      }
+      description: "Provides cryptocurrency market data including prices, market cap, volume, and more. Access historical data and real-time updates."
+      license: {
+        name: "Apache 2.0"
+        url: "https://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.coinpaprika.com/v1"
+        }
+      ]
+      termsOfService: "https://coinpaprika.com/terms"
+      title: "Coinpaprika API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
