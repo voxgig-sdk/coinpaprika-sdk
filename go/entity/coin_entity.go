@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/coinpaprika-sdk/core"
+	"github.com/voxgig-sdk/coinpaprika-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/coinpaprika-sdk/go/utility/struct"
 )
 
 type CoinEntity struct {

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/coinpaprika-sdk"
-	"github.com/voxgig-sdk/coinpaprika-sdk/core"
+	sdk "github.com/voxgig-sdk/coinpaprika-sdk/go"
+	"github.com/voxgig-sdk/coinpaprika-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/coinpaprika-sdk/go/utility/struct"
 )
 
 func TestCoinEntity(t *testing.T) {

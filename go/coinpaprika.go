@@ -1,10 +1,10 @@
 package voxgigcoinpaprikasdk
 
 import (
-	"github.com/voxgig-sdk/coinpaprika-sdk/core"
-	"github.com/voxgig-sdk/coinpaprika-sdk/entity"
-	"github.com/voxgig-sdk/coinpaprika-sdk/feature"
-	_ "github.com/voxgig-sdk/coinpaprika-sdk/utility"
+	"github.com/voxgig-sdk/coinpaprika-sdk/go/core"
+	"github.com/voxgig-sdk/coinpaprika-sdk/go/entity"
+	"github.com/voxgig-sdk/coinpaprika-sdk/go/feature"
+	_ "github.com/voxgig-sdk/coinpaprika-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

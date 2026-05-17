@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/coinpaprika-sdk"
-	"github.com/voxgig-sdk/coinpaprika-sdk/core"
+	sdk "github.com/voxgig-sdk/coinpaprika-sdk/go"
+	"github.com/voxgig-sdk/coinpaprika-sdk/go/core"
 )
 
 func TestTickerDirect(t *testing.T) {

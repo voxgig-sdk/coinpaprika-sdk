@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/coinpaprika-sdk"
+	sdk "github.com/voxgig-sdk/coinpaprika-sdk/go"
 )
 
 func TestExists(t *testing.T) {
