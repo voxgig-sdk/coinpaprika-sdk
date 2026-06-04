@@ -62,14 +62,12 @@ def ticker_direct_setup(mockres)
   env = Runner.env_override({
     "COINPAPRIKA_TEST_TICKER_ENTID" => {},
     "COINPAPRIKA_TEST_LIVE" => "FALSE",
-    "COINPAPRIKA_APIKEY" => "NONE",
   })
 
   live = env["COINPAPRIKA_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["COINPAPRIKA_APIKEY"],
     }
     client = CoinpaprikaSDK.new(merged_opts)
     return {

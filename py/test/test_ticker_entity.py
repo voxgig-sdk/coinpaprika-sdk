@@ -92,7 +92,6 @@ def _ticker_basic_setup(extra):
         "COINPAPRIKA_TEST_TICKER_ENTID": idmap,
         "COINPAPRIKA_TEST_LIVE": "FALSE",
         "COINPAPRIKA_TEST_EXPLAIN": "FALSE",
-        "COINPAPRIKA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _ticker_basic_setup(extra):
     if env.get("COINPAPRIKA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("COINPAPRIKA_APIKEY"),
             },
             extra or {},
         ])

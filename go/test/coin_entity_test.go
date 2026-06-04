@@ -119,7 +119,6 @@ func coinBasicSetup(extra map[string]any) *entityTestSetup {
 		"COINPAPRIKA_TEST_COIN_ENTID": idmap,
 		"COINPAPRIKA_TEST_LIVE":      "FALSE",
 		"COINPAPRIKA_TEST_EXPLAIN":   "FALSE",
-		"COINPAPRIKA_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["COINPAPRIKA_TEST_COIN_ENTID"])
@@ -130,7 +129,6 @@ func coinBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["COINPAPRIKA_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["COINPAPRIKA_APIKEY"],
 			},
 			extra,
 		})

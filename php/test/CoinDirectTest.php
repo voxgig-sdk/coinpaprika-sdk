@@ -68,14 +68,12 @@ function coin_direct_setup($mockres)
     $env = Runner::env_override([
         "COINPAPRIKA_TEST_COIN_ENTID" => [],
         "COINPAPRIKA_TEST_LIVE" => "FALSE",
-        "COINPAPRIKA_APIKEY" => "NONE",
     ]);
 
     $live = $env["COINPAPRIKA_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["COINPAPRIKA_APIKEY"],
         ];
         $client = new CoinpaprikaSDK($merged_opts);
         return [

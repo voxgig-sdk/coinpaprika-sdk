@@ -22,8 +22,28 @@ main: {
       termsOfService: "https://coinpaprika.com/terms"
       title: "Coinpaprika API"
       version: "1.0.0"
+      tagline: "Real-time and historical cryptocurrency market data: prices, volume, market cap, and exchange listings"
+      homepage: "https://coinpaprika.com/"
+      docs_url: "https://docs.coinpaprika.com/api-reference/rest-api/introduction"
+      license_short: "Apache 2.0"
+      license_md: `- API client and schema usage is offered under the Apache 2.0 license.
+- Cryptocurrency market data returned by the API is sourced and aggregated by Coinpaprika; check their terms before redistribution.
+- A free tier is available with no credit card required; higher rate limits and advanced features are offered on paid plans.`
+      about_md: `[Coinpaprika](https://coinpaprika.com/) is a cryptocurrency market data provider that exposes a public REST API at \`https://api.coinpaprika.com/v1\` covering prices, volumes, market capitalisation, exchanges, and historical data for thousands of crypto assets.
+
+What you get from the API:
+
+- Coin metadata and listings (e.g. \`GET /v1/coins\`, \`GET /v1/coins/{coin_id}\` with IDs like \`btc-bitcoin\`).
+- Real-time tickers across all active coins or a single coin (\`GET /v1/tickers\`, \`GET /v1/tickers/{coin_id}\`).
+- Historical OHLC and time-series price data.
+- Exchange and market listings, including per-exchange markets.
+
+The service is available without an API key on the free tier; professional plans are documented at [coinpaprika.com/api-plans](https://coinpaprika.com/api-plans) for higher rate limits and additional features. See [docs.coinpaprika.com](https://docs.coinpaprika.com/) for the full reference and [status.coinpaprika.com](https://status.coinpaprika.com/) for uptime.`
+      entity_desc: {
+        coin: "A cryptocurrency tracked by Coinpaprika, identified by a slug-style id such as `btc-bitcoin`; listed and described via `GET /v1/coins` and `GET /v1/coins/{coin_id}`."
+        ticker: "Latest market data (price, volume, market cap) for a coin, retrieved via `GET /v1/tickers` for all active coins or `GET /v1/tickers/{coin_id}` for a single asset."
+      }
+      auth: false
     }
   }
-}
-
 }
