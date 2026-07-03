@@ -10,7 +10,7 @@ The PHP SDK for the Coinpaprika API — an entity-oriented client using PHP conv
 
 ## Install
 ```bash
-composer require voxgig/coinpaprika-sdk
+composer require voxgig-sdk/coinpaprika
 ```
 
 

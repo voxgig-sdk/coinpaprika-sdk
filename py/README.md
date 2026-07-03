@@ -10,7 +10,7 @@ The Python SDK for the Coinpaprika API — an entity-oriented client following P
 
 ## Install
 ```bash
-pip install coinpaprika-sdk
+pip install voxgig-sdk-coinpaprika
 ```
 
 Or install from source:

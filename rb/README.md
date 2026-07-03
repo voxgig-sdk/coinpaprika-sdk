@@ -10,13 +10,13 @@ The Ruby SDK for the Coinpaprika API — an entity-oriented client using idiomat
 
 ## Install
 ```bash
-gem install coinpaprika-sdk
+gem install voxgig-sdk-coinpaprika
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "coinpaprika-sdk"
+gem "voxgig-sdk-coinpaprika"
 ```
 
 Then run:

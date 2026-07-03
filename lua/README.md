@@ -10,7 +10,7 @@ The Lua SDK for the Coinpaprika API — an entity-oriented client using Lua conv
 
 ## Install
 ```bash
-luarocks install coinpaprika-sdk
+luarocks install voxgig-sdk-coinpaprika
 ```
 
 If the module is not yet published, add the source directory to

@@ -10,7 +10,7 @@ The TypeScript SDK for the Coinpaprika API — a type-safe, entity-oriented clie
 
 ## Install
 ```bash
-npm install coinpaprika
+npm install @voxgig-sdk/coinpaprika
 ```
 ## Tutorial: your first API call
 
