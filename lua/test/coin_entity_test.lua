@@ -92,6 +92,7 @@ function coin_basic_setup(extra)
     ["COINPAPRIKA_TEST_COIN_ENTID"] = idmap,
     ["COINPAPRIKA_TEST_LIVE"] = "FALSE",
     ["COINPAPRIKA_TEST_EXPLAIN"] = "FALSE",
+    ["COINPAPRIKA_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,6 +104,7 @@ function coin_basic_setup(extra)
   if env["COINPAPRIKA_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["COINPAPRIKA_APIKEY"],
       },
       extra or {},
     })

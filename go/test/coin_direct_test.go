@@ -93,12 +93,14 @@ func coinDirectSetup(mockres any) *coinDirectSetupResult {
 	env := envOverride(map[string]any{
 		"COINPAPRIKA_TEST_COIN_ENTID": map[string]any{},
 		"COINPAPRIKA_TEST_LIVE":    "FALSE",
+		"COINPAPRIKA_APIKEY":       "NONE",
 	})
 
 	live := env["COINPAPRIKA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["COINPAPRIKA_APIKEY"],
 		}
 		client := sdk.NewCoinpaprikaSDK(mergedOpts)
 

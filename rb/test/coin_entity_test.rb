@@ -83,6 +83,7 @@ def coin_basic_setup(extra)
     "COINPAPRIKA_TEST_COIN_ENTID" => idmap,
     "COINPAPRIKA_TEST_LIVE" => "FALSE",
     "COINPAPRIKA_TEST_EXPLAIN" => "FALSE",
+    "COINPAPRIKA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,6 +95,7 @@ def coin_basic_setup(extra)
   if env["COINPAPRIKA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["COINPAPRIKA_APIKEY"],
       },
       extra || {},
     ])

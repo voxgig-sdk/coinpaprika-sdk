@@ -1,21 +1,8 @@
 # Coinpaprika SDK
 
-Real-time and historical cryptocurrency market data: prices, volume, market cap, and exchange listings
+Coinpaprika API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Coinpaprika API
-
-[Coinpaprika](https://coinpaprika.com/) is a cryptocurrency market data provider that exposes a public REST API at `https://api.coinpaprika.com/v1` covering prices, volumes, market capitalisation, exchanges, and historical data for thousands of crypto assets.
-
-What you get from the API:
-
-- Coin metadata and listings (e.g. `GET /v1/coins`, `GET /v1/coins/{coin_id}` with IDs like `btc-bitcoin`).
-- Real-time tickers across all active coins or a single coin (`GET /v1/tickers`, `GET /v1/tickers/{coin_id}`).
-- Historical OHLC and time-series price data.
-- Exchange and market listings, including per-exchange markets.
-
-The service is available without an API key on the free tier; professional plans are documented at [coinpaprika.com/api-plans](https://coinpaprika.com/api-plans) for higher rate limits and additional features. See [docs.coinpaprika.com](https://docs.coinpaprika.com/) for the full reference and [status.coinpaprika.com](https://status.coinpaprika.com/) for uptime.
 
 ## Try it
 
@@ -49,29 +36,31 @@ gem install coinpaprika-sdk
 luarocks install coinpaprika-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { CoinpaprikaSDK } from 'coinpaprika'
 
-const client = new CoinpaprikaSDK({})
+const client = new CoinpaprikaSDK({
+  apikey: process.env.COINPAPRIKA_APIKEY,
+})
 
 // List all coins
 const coins = await client.Coin().list()
+console.log(coins.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Coin** | A cryptocurrency tracked by Coinpaprika, identified by a slug-style id such as `btc-bitcoin`; listed and described via `GET /v1/coins` and `GET /v1/coins/{coin_id}`. | `/coins` |
-| **Ticker** | Latest market data (price, volume, market cap) for a coin, retrieved via `GET /v1/tickers` for all active coins or `GET /v1/tickers/{coin_id}` for a single asset. | `/tickers` |
+| **Coin** |  | `/coins` |
+| **Ticker** |  | `/tickers` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,12 +101,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from coinpaprika_sdk import CoinpaprikaSDK
 
-client = CoinpaprikaSDK({})
+client = CoinpaprikaSDK({
+    "apikey": os.environ.get("COINPAPRIKA_APIKEY"),
+})
 
 # List all coins
-coins, err = client.Coin(None).list(None, None)
+coins, err = client.Coin().list()
+print(coins)
 ```
 
 ### PHP
@@ -126,10 +119,13 @@ coins, err = client.Coin(None).list(None, None)
 <?php
 require_once 'coinpaprika_sdk.php';
 
-$client = new CoinpaprikaSDK([]);
+$client = new CoinpaprikaSDK([
+    "apikey" => getenv("COINPAPRIKA_APIKEY"),
+]);
 
 // List all coins
-[$coins, $err] = $client->Coin(null)->list(null, null);
+[$coins, $err] = $client->Coin()->list();
+print_r($coins);
 ```
 
 ### Golang
@@ -137,10 +133,13 @@ $client = new CoinpaprikaSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/coinpaprika-sdk/go"
 
-client := sdk.NewCoinpaprikaSDK(map[string]any{})
+client := sdk.NewCoinpaprikaSDK(map[string]any{
+    "apikey": os.Getenv("COINPAPRIKA_APIKEY"),
+})
 
 // List all coins
 coins, err := client.Coin(nil).List(nil, nil)
+fmt.Println(coins)
 ```
 
 ### Ruby
@@ -148,10 +147,13 @@ coins, err := client.Coin(nil).List(nil, nil)
 ```ruby
 require_relative "Coinpaprika_sdk"
 
-client = CoinpaprikaSDK.new({})
+client = CoinpaprikaSDK.new({
+  "apikey" => ENV["COINPAPRIKA_APIKEY"],
+})
 
 # List all coins
-coins, err = client.Coin(nil).list(nil, nil)
+coins, err = client.Coin().list
+puts coins
 ```
 
 ### Lua
@@ -159,10 +161,13 @@ coins, err = client.Coin(nil).list(nil, nil)
 ```lua
 local sdk = require("coinpaprika_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("COINPAPRIKA_APIKEY"),
+})
 
 -- List all coins
-local coins, err = client:Coin(nil):list(nil, nil)
+local coins, err = client:Coin():list()
+print(coins)
 ```
 
 ## Unit testing in offline mode
@@ -181,25 +186,21 @@ const result = await client.Coin().load({ id: 'test01' })
 ### Python
 
 ```python
-client = CoinpaprikaSDK.test(None, None)
-result, err = client.Coin(None).load(
-    {"id": "test01"}, None
-)
+client = CoinpaprikaSDK.test()
+result, err = client.Coin().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = CoinpaprikaSDK::test(null, null);
-[$result, $err] = $client->Coin(null)->load(
-    ["id" => "test01"], null
-);
+$client = CoinpaprikaSDK::test();
+[$result, $err] = $client->Coin()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Coin(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -208,19 +209,15 @@ result, err := client.Coin(nil).Load(
 ### Ruby
 
 ```ruby
-client = CoinpaprikaSDK.test(nil, nil)
-result, err = client.Coin(nil).load(
-  { "id" => "test01" }, nil
-)
+client = CoinpaprikaSDK.test
+result, err = client.Coin().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Coin(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Coin():load({ id = "test01" })
 ```
 
 ## How it works
@@ -324,15 +321,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Coinpaprika API
-
-- Upstream: [https://coinpaprika.com/](https://coinpaprika.com/)
-- API docs: [https://docs.coinpaprika.com/api-reference/rest-api/introduction](https://docs.coinpaprika.com/api-reference/rest-api/introduction)
-
-- API client and schema usage is offered under the Apache 2.0 license.
-- Cryptocurrency market data returned by the API is sourced and aggregated by Coinpaprika; check their terms before redistribution.
-- A free tier is available with no credit card required; higher rate limits and advanced features are offered on paid plans.
 
 ---
 
