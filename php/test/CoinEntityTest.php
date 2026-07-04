@@ -50,8 +50,7 @@ class CoinEntityTest extends TestCase
         $coin_ref01_ent = $client->Coin(null);
         $coin_ref01_match = [];
 
-        [$coin_ref01_list_result, $err] = $coin_ref01_ent->list($coin_ref01_match, null);
-        $this->assertNull($err);
+        $coin_ref01_list_result = $coin_ref01_ent->list($coin_ref01_match, null);
         $this->assertIsArray($coin_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function coin_basic_setup($extra)
         "COINPAPRIKA_TEST_COIN_ENTID" => $idmap,
         "COINPAPRIKA_TEST_LIVE" => "FALSE",
         "COINPAPRIKA_TEST_EXPLAIN" => "FALSE",
-        "COINPAPRIKA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function coin_basic_setup($extra)
     if ($env["COINPAPRIKA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["COINPAPRIKA_APIKEY"],
             ],
             $extra ?? [],
         ]);

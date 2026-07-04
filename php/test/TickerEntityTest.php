@@ -50,8 +50,7 @@ class TickerEntityTest extends TestCase
         $ticker_ref01_ent = $client->Ticker(null);
         $ticker_ref01_match = [];
 
-        [$ticker_ref01_list_result, $err] = $ticker_ref01_ent->list($ticker_ref01_match, null);
-        $this->assertNull($err);
+        $ticker_ref01_list_result = $ticker_ref01_ent->list($ticker_ref01_match, null);
         $this->assertIsArray($ticker_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function ticker_basic_setup($extra)
         "COINPAPRIKA_TEST_TICKER_ENTID" => $idmap,
         "COINPAPRIKA_TEST_LIVE" => "FALSE",
         "COINPAPRIKA_TEST_EXPLAIN" => "FALSE",
-        "COINPAPRIKA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function ticker_basic_setup($extra)
     if ($env["COINPAPRIKA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["COINPAPRIKA_APIKEY"],
             ],
             $extra ?? [],
         ]);

@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `CoinpaprikaSDK.test()`.
 ## CoinEntity
 
 ```ts
-const coin = client.Coin()
+const coin = client.coin
 ```
 
 ### Fields
@@ -144,7 +143,7 @@ const coin = client.Coin()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Coin().list()
+const results = await client.coin.list()
 ```
 
 ### Common Methods
@@ -178,7 +177,7 @@ Return a copy of the entity options.
 ## TickerEntity
 
 ```ts
-const ticker = client.Ticker()
+const ticker = client.ticker
 ```
 
 ### Fields
@@ -204,7 +203,7 @@ const ticker = client.Ticker()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Ticker().list()
+const results = await client.ticker.list()
 ```
 
 ### Common Methods

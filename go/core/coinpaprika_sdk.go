@@ -245,11 +245,17 @@ func (sdk *CoinpaprikaSDK) Direct(fetchargs map[string]any) (map[string]any, err
 }
 
 
+// Coin returns a Coin entity bound to this client.
+// Idiomatic usage: client.Coin(nil).List(nil, nil) or
+// client.Coin(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CoinpaprikaSDK) Coin(data map[string]any) CoinpaprikaEntity {
 	return NewCoinEntityFunc(sdk, data)
 }
 
 
+// Ticker returns a Ticker entity bound to this client.
+// Idiomatic usage: client.Ticker(nil).List(nil, nil) or
+// client.Ticker(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CoinpaprikaSDK) Ticker(data map[string]any) CoinpaprikaEntity {
 	return NewTickerEntityFunc(sdk, data)
 }

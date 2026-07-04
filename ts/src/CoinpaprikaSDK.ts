@@ -3,6 +3,8 @@
 import { CoinEntity } from './entity/CoinEntity'
 import { TickerEntity } from './entity/TickerEntity'
 
+export type * from './CoinpaprikaTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class CoinpaprikaSDK {
 
 
 
+  _coin?: CoinEntity
+
+  // Idiomatic facade: `client.coin.list()` / `client.coin.load({ id })`.
+  get coin(): CoinEntity {
+    return (this._coin ??= new CoinEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.coin` instead. */
   Coin(data?: any) {
     const self = this
     return new CoinEntity(self,data)
   }
 
 
+  _ticker?: TickerEntity
+
+  // Idiomatic facade: `client.ticker.list()` / `client.ticker.load({ id })`.
+  get ticker(): TickerEntity {
+    return (this._ticker ??= new TickerEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.ticker` instead. */
   Ticker(data?: any) {
     const self = this
     return new TickerEntity(self,data)

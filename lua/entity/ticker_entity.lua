@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch TickerListMatch
+---@param ctrl? table
+---@return Ticker[]
+---@return string? err
 function TickerEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

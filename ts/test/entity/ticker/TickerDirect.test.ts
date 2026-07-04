@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'COINPAPRIKA_TEST_TICKER_ENTID': {},
     'COINPAPRIKA_TEST_LIVE': 'FALSE',
-    'COINPAPRIKA_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.COINPAPRIKA_TEST_LIVE
 
   if (live) {
     const client = new CoinpaprikaSDK({
-      apikey: env.COINPAPRIKA_APIKEY,
     })
 
     let idmap: any = env['COINPAPRIKA_TEST_TICKER_ENTID']

@@ -9,12 +9,9 @@ The Lua SDK for the Coinpaprika API — an entity-oriented client using Lua conv
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-coinpaprika
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/coinpaprika-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("coinpaprika_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("COINPAPRIKA_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List coins
 
 ```lua
-local result, err = client:Coin():list()
+local result, err = client:coin():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Coinpaprika():load({ id = "test01" })
+local result, err = client:coin():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -127,7 +122,6 @@ Create a `.env.local` file at the project root:
 
 ```
 COINPAPRIKA_TEST_LIVE=TRUE
-COINPAPRIKA_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -254,7 +247,7 @@ API path: `/tickers`
 
 ### Coin
 
-Create an instance: `const coin = client.Coin()`
+Create an instance: `const coin = client.coin`
 
 #### Operations
 
@@ -277,13 +270,13 @@ Create an instance: `const coin = client.Coin()`
 #### Example: List
 
 ```ts
-const coins = await client.Coin().list()
+const coins = await client.coin.list()
 ```
 
 
 ### Ticker
 
-Create an instance: `const ticker = client.Ticker()`
+Create an instance: `const ticker = client.ticker`
 
 #### Operations
 
@@ -310,7 +303,7 @@ Create an instance: `const ticker = client.Ticker()`
 #### Example: List
 
 ```ts
-const tickers = await client.Ticker().list()
+const tickers = await client.ticker.list()
 ```
 
 
@@ -385,11 +378,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local coin = client:coin()
+coin:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- coin:data_get() now returns the loaded coin data
+-- coin:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

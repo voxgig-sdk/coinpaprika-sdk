@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "Coinpaprika API"
         url: "https://api.coinpaprika.com"

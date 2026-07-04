@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:coin():list() / client:coin():load({ id = ... })
+function CoinpaprikaSDK:coin(data)
+  local EntityMod = require("entity.coin_entity")
+  if data == nil then
+    if self._coin == nil then
+      self._coin = EntityMod.new(self, nil)
+    end
+    return self._coin
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:coin() instead.
 function CoinpaprikaSDK:Coin(data)
   local EntityMod = require("entity.coin_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:ticker():list() / client:ticker():load({ id = ... })
+function CoinpaprikaSDK:ticker(data)
+  local EntityMod = require("entity.ticker_entity")
+  if data == nil then
+    if self._ticker == nil then
+      self._ticker = EntityMod.new(self, nil)
+    end
+    return self._ticker
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:ticker() instead.
 function CoinpaprikaSDK:Ticker(data)
   local EntityMod = require("entity.ticker_entity")
   return EntityMod.new(self, data)

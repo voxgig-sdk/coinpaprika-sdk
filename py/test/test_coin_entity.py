@@ -50,8 +50,7 @@ class TestCoinEntity:
         coin_ref01_ent = client.Coin(None)
         coin_ref01_match = {}
 
-        coin_ref01_list_result, err = coin_ref01_ent.list(coin_ref01_match, None)
-        assert err is None
+        coin_ref01_list_result = coin_ref01_ent.list(coin_ref01_match, None)
         assert isinstance(coin_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _coin_basic_setup(extra):
         "COINPAPRIKA_TEST_COIN_ENTID": idmap,
         "COINPAPRIKA_TEST_LIVE": "FALSE",
         "COINPAPRIKA_TEST_EXPLAIN": "FALSE",
-        "COINPAPRIKA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _coin_basic_setup(extra):
     if env.get("COINPAPRIKA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("COINPAPRIKA_APIKEY"),
             },
             extra or {},
         ])

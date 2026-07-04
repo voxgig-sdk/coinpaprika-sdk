@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'COINPAPRIKA_TEST_TICKER_ENTID': idmap,
     'COINPAPRIKA_TEST_LIVE': 'FALSE',
     'COINPAPRIKA_TEST_EXPLAIN': 'FALSE',
-    'COINPAPRIKA_APIKEY': 'NONE',
   })
 
   idmap = env['COINPAPRIKA_TEST_TICKER_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new CoinpaprikaSDK(merge([
       {
-        apikey: env.COINPAPRIKA_APIKEY,
       },
       extra
     ]))

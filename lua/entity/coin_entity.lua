@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch CoinListMatch
+---@param ctrl? table
+---@return Coin[]
+---@return string? err
 function CoinEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
