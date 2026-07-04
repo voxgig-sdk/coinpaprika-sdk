@@ -4,61 +4,61 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Coin:
-    id: Optional[str] = None
-    is_active: Optional[bool] = None
-    is_new: Optional[bool] = None
-    name: Optional[str] = None
-    rank: Optional[int] = None
-    symbol: Optional[str] = None
-    type: Optional[str] = None
+class Coin(TypedDict, total=False):
+    id: str
+    is_active: bool
+    is_new: bool
+    name: str
+    rank: int
+    symbol: str
+    type: str
 
 
-@dataclass
-class CoinListMatch:
-    id: Optional[str] = None
-    is_active: Optional[bool] = None
-    is_new: Optional[bool] = None
-    name: Optional[str] = None
-    rank: Optional[int] = None
-    symbol: Optional[str] = None
-    type: Optional[str] = None
+class CoinListMatch(TypedDict, total=False):
+    id: str
+    is_active: bool
+    is_new: bool
+    name: str
+    rank: int
+    symbol: str
+    type: str
 
 
-@dataclass
-class Ticker:
-    beta_value: Optional[float] = None
-    circulating_supply: Optional[float] = None
-    first_data_at: Optional[str] = None
-    id: Optional[str] = None
-    last_updated: Optional[str] = None
-    max_supply: Optional[float] = None
-    name: Optional[str] = None
-    quote: Optional[dict] = None
-    rank: Optional[int] = None
-    symbol: Optional[str] = None
-    total_supply: Optional[float] = None
+class Ticker(TypedDict, total=False):
+    beta_value: float
+    circulating_supply: float
+    first_data_at: str
+    id: str
+    last_updated: str
+    max_supply: float
+    name: str
+    quote: dict
+    rank: int
+    symbol: str
+    total_supply: float
 
 
-@dataclass
-class TickerListMatch:
-    beta_value: Optional[float] = None
-    circulating_supply: Optional[float] = None
-    first_data_at: Optional[str] = None
-    id: Optional[str] = None
-    last_updated: Optional[str] = None
-    max_supply: Optional[float] = None
-    name: Optional[str] = None
-    quote: Optional[dict] = None
-    rank: Optional[int] = None
-    symbol: Optional[str] = None
-    total_supply: Optional[float] = None
-
+class TickerListMatch(TypedDict, total=False):
+    beta_value: float
+    circulating_supply: float
+    first_data_at: str
+    id: str
+    last_updated: str
+    max_supply: float
+    name: str
+    quote: dict
+    rank: int
+    symbol: str
+    total_supply: float

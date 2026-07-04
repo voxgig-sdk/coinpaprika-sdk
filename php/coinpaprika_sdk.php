@@ -233,10 +233,10 @@ class CoinpaprikaSDK
 
     private $_coin = null;
 
-    // Idiomatic facade: $client->coin()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Coin() (PHP method
-    // names are case-insensitive).
-    public function coin($data = null)
+    // Canonical facade: $client->Coin()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->coin()
+    // resolves here too.
+    public function Coin($data = null)
     {
         require_once __DIR__ . '/entity/coin_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class CoinpaprikaSDK
 
     private $_ticker = null;
 
-    // Idiomatic facade: $client->ticker()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Ticker() (PHP method
-    // names are case-insensitive).
-    public function ticker($data = null)
+    // Canonical facade: $client->Ticker()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->ticker()
+    // resolves here too.
+    public function Ticker($data = null)
     {
         require_once __DIR__ . '/entity/ticker_entity.php';
         if ($data === null) {

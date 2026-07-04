@@ -121,7 +121,7 @@ Alias for `CoinpaprikaSDK.test()`.
 ## CoinEntity
 
 ```ts
-const coin = client.coin
+const coin = client.Coin()
 ```
 
 ### Fields
@@ -143,7 +143,7 @@ const coin = client.coin
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.coin.list()
+const results = await client.Coin().list()
 ```
 
 ### Common Methods
@@ -177,7 +177,7 @@ Return a copy of the entity options.
 ## TickerEntity
 
 ```ts
-const ticker = client.ticker
+const ticker = client.Ticker()
 ```
 
 ### Fields
@@ -203,7 +203,7 @@ const ticker = client.ticker
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.ticker.list()
+const results = await client.Ticker().list()
 ```
 
 ### Common Methods

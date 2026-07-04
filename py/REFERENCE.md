@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CoinEntity
 
 ```python
-coin = client.coin
+coin = client.Coin()
 ```
 
 ### Fields
@@ -106,7 +106,9 @@ coin = client.coin
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.coin.list({})
+results = client.Coin().list({})
+for coin in results:
+    print(coin)
 ```
 
 ### Common Methods
@@ -141,7 +143,7 @@ Return the entity name.
 ## TickerEntity
 
 ```python
-ticker = client.ticker
+ticker = client.Ticker()
 ```
 
 ### Fields
@@ -167,7 +169,9 @@ ticker = client.ticker
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.ticker.list({})
+results = client.Ticker().list({})
+for ticker in results:
+    print(ticker)
 ```
 
 ### Common Methods

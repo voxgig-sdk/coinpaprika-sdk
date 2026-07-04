@@ -220,41 +220,21 @@ class CoinpaprikaSDK:
         }
 
 
-    @property
-    def coin(self):
-        """Idiomatic facade: client.coin.list() / client.coin.load({"id": ...})."""
-        from entity.coin_entity import CoinEntity
-        cached = getattr(self, "_coin", None)
-        if cached is None:
-            cached = CoinEntity(self, None)
-            self._coin = cached
-        return cached
-
-    def Coin(self, data=None):
-        # Deprecated: use client.coin instead.
+    def Coin(self, data=None) -> "CoinEntity":
+        """Entity factory: client.Coin().list({}) / client.Coin().load({"id": ...})."""
         from entity.coin_entity import CoinEntity
         return CoinEntity(self, data)
 
 
-    @property
-    def ticker(self):
-        """Idiomatic facade: client.ticker.list() / client.ticker.load({"id": ...})."""
-        from entity.ticker_entity import TickerEntity
-        cached = getattr(self, "_ticker", None)
-        if cached is None:
-            cached = TickerEntity(self, None)
-            self._ticker = cached
-        return cached
-
-    def Ticker(self, data=None):
-        # Deprecated: use client.ticker instead.
+    def Ticker(self, data=None) -> "TickerEntity":
+        """Entity factory: client.Ticker().list({}) / client.Ticker().load({"id": ...})."""
         from entity.ticker_entity import TickerEntity
         return TickerEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "CoinpaprikaSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class CoinpaprikaSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.coin_entity import CoinEntity
+    from entity.ticker_entity import TickerEntity

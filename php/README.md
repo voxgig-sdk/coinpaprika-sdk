@@ -29,18 +29,16 @@ require_once 'coinpaprika_sdk.php';
 $client = new CoinpaprikaSDK();
 ```
 
-### 2. List coins
+### 2. List coin records
 
 ```php
 try {
-    $result = $client->coin()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Coin records — iterate directly.
+    $coins = $client->Coin()->list();
+    foreach ($coins as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = CoinpaprikaSDK::test();
+$client = CoinpaprikaSDK::test([
+    "entity" => ["coin" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->coin()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$coin = $client->Coin()->load(["id" => "test01"]);
+print_r($coin);
 ```
 
 ### Use a custom fetch function
@@ -255,7 +257,7 @@ API path: `/tickers`
 
 ### Coin
 
-Create an instance: `const coin = client.coin`
+Create an instance: `$coin = $client->Coin();`
 
 #### Operations
 
@@ -277,14 +279,15 @@ Create an instance: `const coin = client.coin`
 
 #### Example: List
 
-```ts
-const coins = await client.coin.list()
+```php
+// list() returns an array of Coin records (throws on error).
+$coins = $client->Coin()->list();
 ```
 
 
 ### Ticker
 
-Create an instance: `const ticker = client.ticker`
+Create an instance: `$ticker = $client->Ticker();`
 
 #### Operations
 
@@ -310,8 +313,9 @@ Create an instance: `const ticker = client.ticker`
 
 #### Example: List
 
-```ts
-const tickers = await client.ticker.list()
+```php
+// list() returns an array of Ticker records (throws on error).
+$tickers = $client->Ticker()->list();
 ```
 
 
@@ -386,7 +390,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$coin = $client->coin();
+$coin = $client->Coin();
 $coin->load(["id" => "example_id"]);
 
 // $coin->dataGet() now returns the loaded coin data

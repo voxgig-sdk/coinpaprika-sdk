@@ -31,14 +31,16 @@ from coinpaprika_sdk import CoinpaprikaSDK
 client = CoinpaprikaSDK()
 ```
 
-### 2. List coins
+### 2. List coin records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.coin.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    coins = client.Coin().list({})
+    for coin in coins:
+        print(coin)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CoinpaprikaSDK.test()
 
-result = client.coin.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+coin = client.Coin().load({"id": "test01"})
+# coin contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -247,7 +250,7 @@ API path: `/tickers`
 
 ### Coin
 
-Create an instance: `const coin = client.coin`
+Create an instance: `coin = client.Coin()`
 
 #### Operations
 
@@ -269,14 +272,14 @@ Create an instance: `const coin = client.coin`
 
 #### Example: List
 
-```ts
-const coins = await client.coin.list()
+```python
+coins = client.Coin().list({})
 ```
 
 
 ### Ticker
 
-Create an instance: `const ticker = client.ticker`
+Create an instance: `ticker = client.Ticker()`
 
 #### Operations
 
@@ -302,8 +305,8 @@ Create an instance: `const ticker = client.ticker`
 
 #### Example: List
 
-```ts
-const tickers = await client.ticker.list()
+```python
+tickers = client.Ticker().list({})
 ```
 
 
@@ -377,7 +380,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-coin = client.coin
+coin = client.Coin()
 coin.load({"id": "example_id"})
 
 # coin.data_get() now returns the loaded coin data

@@ -205,28 +205,14 @@ class CoinpaprikaSDK {
 
 
 
-  _coin?: CoinEntity
-
-  // Idiomatic facade: `client.coin.list()` / `client.coin.load({ id })`.
-  get coin(): CoinEntity {
-    return (this._coin ??= new CoinEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.coin` instead. */
+  // Entity access: `client.Coin().list()` / `client.Coin().load({ id })`.
   Coin(data?: any) {
     const self = this
     return new CoinEntity(self,data)
   }
 
 
-  _ticker?: TickerEntity
-
-  // Idiomatic facade: `client.ticker.list()` / `client.ticker.load({ id })`.
-  get ticker(): TickerEntity {
-    return (this._ticker ??= new TickerEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.ticker` instead. */
+  // Entity access: `client.Ticker().list()` / `client.Ticker().load({ id })`.
   Ticker(data?: any) {
     const self = this
     return new TickerEntity(self,data)

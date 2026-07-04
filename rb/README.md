@@ -28,16 +28,14 @@ require_relative "Coinpaprika_sdk"
 client = CoinpaprikaSDK.new
 ```
 
-### 2. List coins
+### 2. List coin records
 
 ```ruby
 begin
-  result = client.coin.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Coin records — iterate directly.
+  coins = client.Coin.list
+  coins.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = CoinpaprikaSDK.test
+client = CoinpaprikaSDK.test({
+  "entity" => { "coin" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.coin.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+coin = client.Coin.load({ "id" => "test01" })
+puts coin
 ```
 
 ### Use a custom fetch function
@@ -250,7 +252,7 @@ API path: `/tickers`
 
 ### Coin
 
-Create an instance: `const coin = client.coin`
+Create an instance: `coin = client.Coin`
 
 #### Operations
 
@@ -272,14 +274,15 @@ Create an instance: `const coin = client.coin`
 
 #### Example: List
 
-```ts
-const coins = await client.coin.list()
+```ruby
+# list returns an Array of Coin records (raises on error).
+coins = client.Coin.list
 ```
 
 
 ### Ticker
 
-Create an instance: `const ticker = client.ticker`
+Create an instance: `ticker = client.Ticker`
 
 #### Operations
 
@@ -305,8 +308,9 @@ Create an instance: `const ticker = client.ticker`
 
 #### Example: List
 
-```ts
-const tickers = await client.ticker.list()
+```ruby
+# list returns an Array of Ticker records (raises on error).
+tickers = client.Ticker.list
 ```
 
 
@@ -381,7 +385,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-coin = client.coin
+coin = client.Coin
 coin.load({ "id" => "example_id" })
 
 # coin.data_get now returns the loaded coin data

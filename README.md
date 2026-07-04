@@ -26,9 +26,11 @@ import { CoinpaprikaSDK } from '@voxgig-sdk/coinpaprika'
 
 const client = new CoinpaprikaSDK()
 
-// List all coins
-const coins = await client.coin.list()
-console.log(coins.data)
+// List all coins (returns Coin[])
+const coins = await client.Coin().list()
+for (const coin of coins) {
+  console.log(coin)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,9 +86,10 @@ from coinpaprika_sdk import CoinpaprikaSDK
 
 client = CoinpaprikaSDK()
 
-# List all coins
-coins = client.coin.list()
-print(coins)
+# List all coins (returns a list, raises on error)
+coins = client.Coin().list({})
+for coin in coins:
+    print(coin)
 ```
 
 ### PHP
@@ -97,8 +100,8 @@ require_once 'coinpaprika_sdk.php';
 
 $client = new CoinpaprikaSDK();
 
-// List all coins (throws on error)
-$coins = $client->coin()->list();
+// List all coins (returns an array; throws on error)
+$coins = $client->Coin()->list();
 print_r($coins);
 ```
 
@@ -121,8 +124,8 @@ require_relative "Coinpaprika_sdk"
 
 client = CoinpaprikaSDK.new
 
-# List all coins
-coins = client.coin.list
+# List all coins (returns an Array; raises on error)
+coins = client.Coin.list
 puts coins
 ```
 
@@ -134,7 +137,7 @@ local sdk = require("coinpaprika_sdk")
 local client = sdk.new()
 
 -- List all coins
-local coins, err = client:coin():list()
+local coins, err = client:Coin():list()
 print(coins)
 ```
 
@@ -147,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = CoinpaprikaSDK.test()
-const result = await client.coin.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const coin = await client.Coin().load({ id: 'test01' })
+// coin is a bare Coin populated with mock data
+console.log(coin)
 ```
 
 ### Python
 
 ```python
 client = CoinpaprikaSDK.test()
-result = client.coin.load({"id": "test01"})
+coin = client.Coin().load({"id": "test01"})
+print(coin)
 ```
 
 ### PHP
 
 ```php
-$client = CoinpaprikaSDK::test();
-$result = $client->coin()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = CoinpaprikaSDK::test([
+    "entity" => ["coin" => ["test01" => ["id" => "test01"]]],
+]);
+$coin = $client->Coin()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -177,15 +185,18 @@ result, err := client.Coin(nil).Load(
 ### Ruby
 
 ```ruby
-client = CoinpaprikaSDK.test
-result = client.coin.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = CoinpaprikaSDK.test({
+  "entity" => { "coin" => { "test01" => { "id" => "test01" } } },
+})
+coin = client.Coin.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:coin():load({ id = "test01" })
+local result, err = client:Coin():load({ id = "test01" })
 ```
 
 ## How it works
@@ -233,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

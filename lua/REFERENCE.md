@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## CoinEntity
 
 ```lua
-local coin = client:coin(nil)
+local coin = client:Coin(nil)
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ local coin = client:coin(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:coin():list()
+local results, err = client:Coin():list()
 ```
 
 ### Common Methods
@@ -145,7 +145,7 @@ Return the entity name.
 ## TickerEntity
 
 ```lua
-local ticker = client:ticker(nil)
+local ticker = client:Ticker(nil)
 ```
 
 ### Fields
@@ -171,7 +171,7 @@ local ticker = client:ticker(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:ticker():list()
+local results, err = client:Ticker():list()
 ```
 
 ### Common Methods

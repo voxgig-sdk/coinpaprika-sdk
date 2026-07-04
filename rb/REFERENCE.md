@@ -90,7 +90,7 @@ same parameters as `direct()`. Raises on error.
 ## CoinEntity
 
 ```ruby
-coin = client.coin
+coin = client.Coin
 ```
 
 ### Fields
@@ -112,7 +112,7 @@ coin = client.coin
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.coin.list(nil)
+results = client.Coin.list(nil)
 ```
 
 ### Common Methods
@@ -148,7 +148,7 @@ Return the entity name.
 ## TickerEntity
 
 ```ruby
-ticker = client.ticker
+ticker = client.Ticker
 ```
 
 ### Fields
@@ -174,7 +174,7 @@ ticker = client.ticker
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.ticker.list(nil)
+results = client.Ticker.list(nil)
 ```
 
 ### Common Methods

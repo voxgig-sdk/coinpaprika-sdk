@@ -208,26 +208,14 @@ class CoinpaprikaSDK
   end
 
 
-  # Idiomatic facade: client.coin.list / client.coin.load({ "id" => ... })
-  def coin
-    require_relative 'entity/coin_entity'
-    @coin ||= CoinEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.coin instead.
+  # Canonical facade: client.Coin.list / client.Coin.load({ "id" => ... })
   def Coin(data = nil)
     require_relative 'entity/coin_entity'
     CoinEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.ticker.list / client.ticker.load({ "id" => ... })
-  def ticker
-    require_relative 'entity/ticker_entity'
-    @ticker ||= TickerEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.ticker instead.
+  # Canonical facade: client.Ticker.list / client.Ticker.load({ "id" => ... })
   def Ticker(data = nil)
     require_relative 'entity/ticker_entity'
     TickerEntity.new(self, data)

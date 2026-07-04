@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CoinEntity
 
 ```php
-$coin = $client->coin();
+$coin = $client->Coin();
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ $coin = $client->coin();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->coin()->list([]);
+$results = $client->Coin()->list([]);
 ```
 
 ### Common Methods
@@ -147,7 +147,7 @@ Return the entity name.
 ## TickerEntity
 
 ```php
-$ticker = $client->ticker();
+$ticker = $client->Ticker();
 ```
 
 ### Fields
@@ -173,7 +173,7 @@ $ticker = $client->ticker();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->ticker()->list([]);
+$results = $client->Ticker()->list([]);
 ```
 
 ### Common Methods
