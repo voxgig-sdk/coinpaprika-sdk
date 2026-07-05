@@ -41,7 +41,7 @@ Coin = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Coin#list (any subset of Coin fields).
+# Request payload for Coin#list.
 #
 # @!attribute [rw] id
 #   @return [String, nil]
@@ -123,7 +123,7 @@ Ticker = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Ticker#list (any subset of Ticker fields).
+# Request payload for Ticker#list.
 #
 # @!attribute [rw] beta_value
 #   @return [Float, nil]

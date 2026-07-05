@@ -91,22 +91,22 @@ coin = client.Coin()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `is_active` | ``$BOOLEAN`` | No |  |
-| `is_new` | ``$BOOLEAN`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `rank` | ``$INTEGER`` | No |  |
-| `symbol` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `id` | `str` | No |  |
+| `is_active` | `bool` | No |  |
+| `is_new` | `bool` | No |  |
+| `name` | `str` | No |  |
+| `rank` | `int` | No |  |
+| `symbol` | `str` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Coin().list({})
+results = client.Coin().list()
 for coin in results:
     print(coin)
 ```
@@ -150,26 +150,26 @@ ticker = client.Ticker()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `beta_value` | ``$NUMBER`` | No |  |
-| `circulating_supply` | ``$NUMBER`` | No |  |
-| `first_data_at` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `max_supply` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `quote` | ``$OBJECT`` | No |  |
-| `rank` | ``$INTEGER`` | No |  |
-| `symbol` | ``$STRING`` | No |  |
-| `total_supply` | ``$NUMBER`` | No |  |
+| `beta_value` | `float` | No |  |
+| `circulating_supply` | `float` | No |  |
+| `first_data_at` | `str` | No |  |
+| `id` | `str` | No |  |
+| `last_updated` | `str` | No |  |
+| `max_supply` | `float` | No |  |
+| `name` | `str` | No |  |
+| `quote` | `dict` | No |  |
+| `rank` | `int` | No |  |
+| `symbol` | `str` | No |  |
+| `total_supply` | `float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Ticker().list({})
+results = client.Ticker().list()
 for ticker in results:
     print(ticker)
 ```

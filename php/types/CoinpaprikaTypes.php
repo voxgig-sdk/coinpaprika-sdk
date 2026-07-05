@@ -24,7 +24,7 @@ class Coin
     public ?string $type = null;
 }
 
-/** Match filter for Coin#list (any subset of Coin fields). */
+/** Request payload for Coin#list. */
 class CoinListMatch
 {
     public ?string $id = null;
@@ -52,7 +52,7 @@ class Ticker
     public ?float $total_supply = null;
 }
 
-/** Match filter for Ticker#list (any subset of Ticker fields). */
+/** Request payload for Ticker#list. */
 class TickerListMatch
 {
     public ?float $beta_value = null;

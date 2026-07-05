@@ -19,8 +19,7 @@ type Coin struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// CoinListMatch mirrors the coin fields as an all-optional match
-// filter (Go analog of Partial<Coin>).
+// CoinListMatch is the typed request payload for Coin.ListTyped.
 type CoinListMatch struct {
 	Id *string `json:"id,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
@@ -46,8 +45,7 @@ type Ticker struct {
 	TotalSupply *float64 `json:"total_supply,omitempty"`
 }
 
-// TickerListMatch mirrors the ticker fields as an all-optional match
-// filter (Go analog of Partial<Ticker>).
+// TickerListMatch is the typed request payload for Ticker.ListTyped.
 type TickerListMatch struct {
 	BetaValue *float64 `json:"beta_value,omitempty"`
 	CirculatingSupply *float64 `json:"circulating_supply,omitempty"`

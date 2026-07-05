@@ -16,6 +16,13 @@
 ---@field type? string
 
 ---@class CoinListMatch
+---@field id? string
+---@field is_active? boolean
+---@field is_new? boolean
+---@field name? string
+---@field rank? number
+---@field symbol? string
+---@field type? string
 
 ---@class Ticker
 ---@field beta_value? number
@@ -31,6 +38,17 @@
 ---@field total_supply? number
 
 ---@class TickerListMatch
+---@field beta_value? number
+---@field circulating_supply? number
+---@field first_data_at? string
+---@field id? string
+---@field last_updated? string
+---@field max_supply? number
+---@field name? string
+---@field quote? table
+---@field rank? number
+---@field symbol? string
+---@field total_supply? number
 
 local M = {}
 

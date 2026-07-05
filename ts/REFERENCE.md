@@ -128,13 +128,13 @@ const coin = client.Coin()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `is_active` | ``$BOOLEAN`` | No |  |
-| `is_new` | ``$BOOLEAN`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `rank` | ``$INTEGER`` | No |  |
-| `symbol` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `id` | `string` | No |  |
+| `is_active` | `boolean` | No |  |
+| `is_new` | `boolean` | No |  |
+| `name` | `string` | No |  |
+| `rank` | `number` | No |  |
+| `symbol` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -184,17 +184,17 @@ const ticker = client.Ticker()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `beta_value` | ``$NUMBER`` | No |  |
-| `circulating_supply` | ``$NUMBER`` | No |  |
-| `first_data_at` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `max_supply` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `quote` | ``$OBJECT`` | No |  |
-| `rank` | ``$INTEGER`` | No |  |
-| `symbol` | ``$STRING`` | No |  |
-| `total_supply` | ``$NUMBER`` | No |  |
+| `beta_value` | `number` | No |  |
+| `circulating_supply` | `number` | No |  |
+| `first_data_at` | `string` | No |  |
+| `id` | `string` | No |  |
+| `last_updated` | `string` | No |  |
+| `max_supply` | `number` | No |  |
+| `name` | `string` | No |  |
+| `quote` | `Record<string, any>` | No |  |
+| `rank` | `number` | No |  |
+| `symbol` | `string` | No |  |
+| `total_supply` | `number` | No |  |
 
 ### Operations
 

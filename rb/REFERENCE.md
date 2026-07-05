@@ -8,7 +8,7 @@ Complete API reference for the Coinpaprika Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'coinpaprika_sdk'
+require_relative 'Coinpaprika_sdk'
 
 client = CoinpaprikaSDK.new(options)
 ```
@@ -97,22 +97,22 @@ coin = client.Coin
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `is_active` | ``$BOOLEAN`` | No |  |
-| `is_new` | ``$BOOLEAN`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `rank` | ``$INTEGER`` | No |  |
-| `symbol` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `id` | `String` | No |  |
+| `is_active` | `Boolean` | No |  |
+| `is_new` | `Boolean` | No |  |
+| `name` | `String` | No |  |
+| `rank` | `Integer` | No |  |
+| `symbol` | `String` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Coin.list(nil)
+results = client.Coin.list
 ```
 
 ### Common Methods
@@ -155,26 +155,26 @@ ticker = client.Ticker
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `beta_value` | ``$NUMBER`` | No |  |
-| `circulating_supply` | ``$NUMBER`` | No |  |
-| `first_data_at` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `max_supply` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `quote` | ``$OBJECT`` | No |  |
-| `rank` | ``$INTEGER`` | No |  |
-| `symbol` | ``$STRING`` | No |  |
-| `total_supply` | ``$NUMBER`` | No |  |
+| `beta_value` | `Float` | No |  |
+| `circulating_supply` | `Float` | No |  |
+| `first_data_at` | `String` | No |  |
+| `id` | `String` | No |  |
+| `last_updated` | `String` | No |  |
+| `max_supply` | `Float` | No |  |
+| `name` | `String` | No |  |
+| `quote` | `Hash` | No |  |
+| `rank` | `Integer` | No |  |
+| `symbol` | `String` | No |  |
+| `total_supply` | `Float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Ticker.list(nil)
+results = client.Ticker.list
 ```
 
 ### Common Methods

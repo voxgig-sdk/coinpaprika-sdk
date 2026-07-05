@@ -221,13 +221,13 @@ class CoinpaprikaSDK:
 
 
     def Coin(self, data=None) -> "CoinEntity":
-        """Entity factory: client.Coin().list({}) / client.Coin().load({"id": ...})."""
+        """Entity factory: client.Coin().list() / client.Coin().load({"id": ...})."""
         from entity.coin_entity import CoinEntity
         return CoinEntity(self, data)
 
 
     def Ticker(self, data=None) -> "TickerEntity":
-        """Entity factory: client.Ticker().list({}) / client.Ticker().load({"id": ...})."""
+        """Entity factory: client.Ticker().list() / client.Ticker().load({"id": ...})."""
         from entity.ticker_entity import TickerEntity
         return TickerEntity(self, data)
 

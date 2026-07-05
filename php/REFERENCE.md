@@ -49,11 +49,11 @@ Create a new `CoinEntity` instance. Pass `null` for no initial data.
 
 Create a new `TickerEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): CoinpaprikaUtility`
 
 Return a copy of the SDK utility object.
 
@@ -96,39 +96,39 @@ $coin = $client->Coin();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | No |  |
-| `is_active` | ``$BOOLEAN`` | No |  |
-| `is_new` | ``$BOOLEAN`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `rank` | ``$INTEGER`` | No |  |
-| `symbol` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `id` | `string` | No |  |
+| `is_active` | `bool` | No |  |
+| `is_new` | `bool` | No |  |
+| `name` | `string` | No |  |
+| `rank` | `int` | No |  |
+| `symbol` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Coin()->list([]);
+$results = $client->Coin()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -137,7 +137,7 @@ Set the entity match criteria.
 Create a new `CoinEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -154,43 +154,43 @@ $ticker = $client->Ticker();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `beta_value` | ``$NUMBER`` | No |  |
-| `circulating_supply` | ``$NUMBER`` | No |  |
-| `first_data_at` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `max_supply` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `quote` | ``$OBJECT`` | No |  |
-| `rank` | ``$INTEGER`` | No |  |
-| `symbol` | ``$STRING`` | No |  |
-| `total_supply` | ``$NUMBER`` | No |  |
+| `beta_value` | `float` | No |  |
+| `circulating_supply` | `float` | No |  |
+| `first_data_at` | `string` | No |  |
+| `id` | `string` | No |  |
+| `last_updated` | `string` | No |  |
+| `max_supply` | `float` | No |  |
+| `name` | `string` | No |  |
+| `quote` | `array` | No |  |
+| `rank` | `int` | No |  |
+| `symbol` | `string` | No |  |
+| `total_supply` | `float` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Ticker()->list([]);
+$results = $client->Ticker()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -199,7 +199,7 @@ Set the entity match criteria.
 Create a new `TickerEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

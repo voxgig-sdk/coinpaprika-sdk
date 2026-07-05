@@ -66,8 +66,12 @@ class CoinEntity:
     
 
     
-    def list(self, reqmatch: CoinListMatch, ctrl=None) -> list[Coin]:
+    def list(self, reqmatch=None, ctrl=None) -> list[Coin]:
         utility = self._utility
+        # reqmatch is optional: an omitted match lists all records. Treat None
+        # as an empty match so client.Coin().list() works with no args.
+        if reqmatch is None:
+            reqmatch = {}
         ctx = utility.make_context({
             "opname": "list",
             "ctrl": ctrl,
