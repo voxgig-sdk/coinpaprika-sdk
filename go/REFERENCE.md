@@ -95,6 +95,7 @@ same parameters as `Direct()`.
 
 ```go
 coin := client.Coin(nil)
+fmt.Println(coin.GetName()) // "coin"
 ```
 
 ### Fields
@@ -117,6 +118,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Coin(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -147,6 +152,7 @@ Return the entity name.
 
 ```go
 ticker := client.Ticker(nil)
+fmt.Println(ticker.GetName()) // "ticker"
 ```
 
 ### Fields
@@ -173,6 +179,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Ticker(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -381,15 +378,18 @@
           "name": "Apache 2.0",
           "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://api.coinpaprika.com/v1"
           }
         ],
+        "summary": "Provides cryptocurrency market data including prices, market cap, volume, and more.",
         "termsOfService": "https://coinpaprika.com/terms",
         "title": "Coinpaprika API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://coinpaprika.com"
       },
       "option": {},
       "target": {
@@ -442,6 +442,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -492,6 +495,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
