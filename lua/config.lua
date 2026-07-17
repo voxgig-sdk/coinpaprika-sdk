@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- Coinpaprika SDK configuration
 
 local function make_config()
   return {

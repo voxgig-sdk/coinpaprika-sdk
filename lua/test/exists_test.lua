@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Coinpaprika SDK exists test
 
 local sdk = require("coinpaprika_sdk")
 
