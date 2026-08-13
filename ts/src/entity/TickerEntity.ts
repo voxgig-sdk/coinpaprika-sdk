@@ -37,7 +37,7 @@ class TickerEntity extends CoinpaprikaEntityBase<Ticker> {
 
 
 
-  async list(this: any, reqmatch?: TickerListMatch, ctrl?: Control): Promise<Ticker[]> {
+  async list(this: any, reqmatch?: TickerListMatch, ctrl?: Control): Promise<TickerEntity[]> {
 
     const utility = this._utility
 

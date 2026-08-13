@@ -35,7 +35,9 @@ const client = new CoinpaprikaSDK()
 
 ### 2. List coin records
 
-`list()` resolves to an array of Coin objects — iterate it directly:
+`list()` resolves to an array of Coin ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const coins = await client.Coin().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = CoinpaprikaSDK.test()
 
 const coin = await client.Coin().list()
-// coin is a bare entity populated with mock response data
+// coin is the entity, populated with mock response data
+// — call coin.data() for the record itself
 console.log(coin)
 ```
 
@@ -308,7 +311,7 @@ API path: `/coins`
 | `last_updated` |  |
 | `max_supply` |  |
 | `name` |  |
-| `quote` |  |
+| `quotes` |  |
 | `rank` |  |
 | `symbol` |  |
 | `total_supply` |  |
@@ -372,7 +375,7 @@ Create an instance: `const ticker = client.Ticker()`
 | `last_updated` | `string` |  |
 | `max_supply` | `number` |  |
 | `name` | `string` |  |
-| `quote` | `Record<string, any>` |  |
+| `quotes` | `Record<string, any>` |  |
 | `rank` | `number` |  |
 | `symbol` | `string` |  |
 | `total_supply` | `number` |  |

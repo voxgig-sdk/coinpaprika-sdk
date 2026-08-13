@@ -37,7 +37,7 @@ class CoinEntity extends CoinpaprikaEntityBase<Coin> {
 
 
 
-  async list(this: any, reqmatch?: CoinListMatch, ctrl?: Control): Promise<Coin[]> {
+  async list(this: any, reqmatch?: CoinListMatch, ctrl?: Control): Promise<CoinEntity[]> {
 
     const utility = this._utility
 

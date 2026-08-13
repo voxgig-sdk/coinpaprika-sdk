@@ -191,7 +191,7 @@ const ticker = client.Ticker()
 | `last_updated` | `string` | No |  |
 | `max_supply` | `number` | No |  |
 | `name` | `string` | No |  |
-| `quote` | `Record<string, any>` | No |  |
+| `quotes` | `Record<string, any>` | No |  |
 | `rank` | `number` | No |  |
 | `symbol` | `string` | No |  |
 | `total_supply` | `number` | No |  |

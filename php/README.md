@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = CoinpaprikaSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $coin = $client->Coin()->list();
 print_r($coin);
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -270,7 +271,7 @@ API path: `/coins`
 | `last_updated` |  |
 | `max_supply` |  |
 | `name` |  |
-| `quote` |  |
+| `quotes` |  |
 | `rank` |  |
 | `symbol` |  |
 | `total_supply` |  |
@@ -335,7 +336,7 @@ Create an instance: `$ticker = $client->Ticker();`
 | `last_updated` | `string` |  |
 | `max_supply` | `float` |  |
 | `name` | `string` |  |
-| `quote` | `array` |  |
+| `quotes` | `array` |  |
 | `rank` | `int` |  |
 | `symbol` | `string` |  |
 | `total_supply` | `float` |  |

@@ -97,7 +97,7 @@ CoinListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] quote
+# @!attribute [rw] quotes
 #   @return [Hash, nil]
 #
 # @!attribute [rw] rank
@@ -116,7 +116,7 @@ Ticker = Struct.new(
   :last_updated,
   :max_supply,
   :name,
-  :quote,
+  :quotes,
   :rank,
   :symbol,
   :total_supply,
@@ -146,7 +146,7 @@ Ticker = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] quote
+# @!attribute [rw] quotes
 #   @return [Hash, nil]
 #
 # @!attribute [rw] rank
@@ -165,7 +165,7 @@ TickerListMatch = Struct.new(
   :last_updated,
   :max_supply,
   :name,
-  :quote,
+  :quotes,
   :rank,
   :symbol,
   :total_supply,

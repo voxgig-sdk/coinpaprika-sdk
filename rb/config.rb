@@ -85,6 +85,7 @@ module CoinpaprikaConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/coins",
                   "parts" => [
@@ -158,7 +159,7 @@ module CoinpaprikaConfig
             },
             {
               "active" => true,
-              "name" => "quote",
+              "name" => "quotes",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 7,
@@ -206,6 +207,7 @@ module CoinpaprikaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tickers",
                   "parts" => [

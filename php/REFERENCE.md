@@ -161,7 +161,7 @@ $ticker = $client->Ticker();
 | `last_updated` | `string` | No |  |
 | `max_supply` | `float` | No |  |
 | `name` | `string` | No |  |
-| `quote` | `array` | No |  |
+| `quotes` | `array` | No |  |
 | `rank` | `int` | No |  |
 | `symbol` | `string` | No |  |
 | `total_supply` | `float` | No |  |

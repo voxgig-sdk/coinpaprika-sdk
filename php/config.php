@@ -90,6 +90,7 @@ class CoinpaprikaConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/coins',
                   'parts' => [
@@ -163,7 +164,7 @@ class CoinpaprikaConfig
             ],
             [
               'active' => true,
-              'name' => 'quote',
+              'name' => 'quotes',
               'req' => false,
               'type' => '`$OBJECT`',
               'index$' => 7,
@@ -211,6 +212,7 @@ class CoinpaprikaConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/tickers',
                   'parts' => [

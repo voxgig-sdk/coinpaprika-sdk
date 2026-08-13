@@ -33,7 +33,7 @@ export interface Ticker {
   last_updated?: string
   max_supply?: number
   name?: string
-  quote?: Record<string, any>
+  quotes?: Record<string, any>
   rank?: number
   symbol?: string
   total_supply?: number
@@ -47,7 +47,7 @@ export interface TickerListMatch {
   last_updated?: string
   max_supply?: number
   name?: string
-  quote?: Record<string, any>
+  quotes?: Record<string, any>
   rank?: number
   symbol?: string
   total_supply?: number

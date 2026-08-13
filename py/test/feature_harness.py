@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CoinpaprikaControl
-from core.error import CoinpaprikaError
-from core.result import CoinpaprikaResult
-from core.spec import CoinpaprikaSpec
+from coinpaprika_sdk.config import make_config
+from coinpaprika_sdk.features import _make_feature
+from coinpaprika_sdk.core.control import CoinpaprikaControl
+from coinpaprika_sdk.core.error import CoinpaprikaError
+from coinpaprika_sdk.core.result import CoinpaprikaResult
+from coinpaprika_sdk.core.spec import CoinpaprikaSpec
 
 
 # True when this SDK was generated with the named feature.

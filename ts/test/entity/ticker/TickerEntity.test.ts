@@ -63,7 +63,7 @@ describe('TickerEntity', async () => {
     const ticker_ref01_ent = client.Ticker()
     const ticker_ref01_match: any = {}
 
-    const ticker_ref01_list = await ticker_ref01_ent.list(ticker_ref01_match)
+    const ticker_ref01_list = (await ticker_ref01_ent.list(ticker_ref01_match)).map((e: any) => e.data())
 
 
   })

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Coinpaprika',
   }
 
 
@@ -116,6 +116,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/coins",
               "parts": [
@@ -189,7 +190,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "quote",
+          "name": "quotes",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 7
@@ -237,6 +238,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/tickers",
               "parts": [

@@ -46,7 +46,7 @@ class Ticker
     public ?string $last_updated = null;
     public ?float $max_supply = null;
     public ?string $name = null;
-    public ?array $quote = null;
+    public ?array $quotes = null;
     public ?int $rank = null;
     public ?string $symbol = null;
     public ?float $total_supply = null;
@@ -62,7 +62,7 @@ class TickerListMatch
     public ?string $last_updated = null;
     public ?float $max_supply = null;
     public ?string $name = null;
-    public ?array $quote = null;
+    public ?array $quotes = null;
     public ?int $rank = null;
     public ?string $symbol = null;
     public ?float $total_supply = null;

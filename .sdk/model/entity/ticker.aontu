@@ -41,7 +41,7 @@ main: kit: entity: ticker: {
       type: "`$STRING`"
     }
     {
-      name: "quote"
+      name: "quotes"
       req: false
       type: "`$OBJECT`"
     }

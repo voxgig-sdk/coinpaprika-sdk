@@ -84,6 +84,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/coins",
                 ["parts"] = {
@@ -157,7 +158,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "quote",
+            ["name"] = "quotes",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 7,
@@ -205,6 +206,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tickers",
                 ["parts"] = {

@@ -32,7 +32,7 @@
 ---@field last_updated? string
 ---@field max_supply? number
 ---@field name? string
----@field quote? table
+---@field quotes? table
 ---@field rank? number
 ---@field symbol? string
 ---@field total_supply? number
@@ -45,7 +45,7 @@
 ---@field last_updated? string
 ---@field max_supply? number
 ---@field name? string
----@field quote? table
+---@field quotes? table
 ---@field rank? number
 ---@field symbol? string
 ---@field total_supply? number

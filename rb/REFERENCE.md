@@ -162,7 +162,7 @@ ticker = client.Ticker
 | `last_updated` | `String` | No |  |
 | `max_supply` | `Float` | No |  |
 | `name` | `String` | No |  |
-| `quote` | `Hash` | No |  |
+| `quotes` | `Hash` | No |  |
 | `rank` | `Integer` | No |  |
 | `symbol` | `String` | No |  |
 | `total_supply` | `Float` | No |  |

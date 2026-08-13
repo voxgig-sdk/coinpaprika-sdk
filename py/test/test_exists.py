@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Coinpaprika SDK exists test
 
 import pytest
 from coinpaprika_sdk import CoinpaprikaSDK

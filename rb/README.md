@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = CoinpaprikaSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 coin = client.Coin.list()
 puts coin
 ```
@@ -260,7 +261,7 @@ API path: `/coins`
 | `last_updated` |  |
 | `max_supply` |  |
 | `name` |  |
-| `quote` |  |
+| `quotes` |  |
 | `rank` |  |
 | `symbol` |  |
 | `total_supply` |  |
@@ -325,7 +326,7 @@ Create an instance: `ticker = client.Ticker`
 | `last_updated` | `String` |  |
 | `max_supply` | `Float` |  |
 | `name` | `String` |  |
-| `quote` | `Hash` |  |
+| `quotes` | `Hash` |  |
 | `rank` | `Integer` |  |
 | `symbol` | `String` |  |
 | `total_supply` | `Float` |  |

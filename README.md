@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CoinpaprikaSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CoinpaprikaSDK.test({
+  entity: {
+    coin: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const coins = await client.Coin().list()
-// coins is an array of bare Coin records populated with mock data
+// coins is an array of Coin entities, populated with mock data
+// — call coins[0].data() for the record itself
 console.log(coins)
 ```
 
@@ -110,7 +119,7 @@ import { CoinpaprikaSDK } from '@voxgig-sdk/coinpaprika'
 
 const client = new CoinpaprikaSDK()
 
-// List all coins (returns Coin[])
+// List all coins (returns CoinEntity[] — .data() for the record)
 const coins = await client.Coin().list()
 for (const coin of coins) {
   console.log(coin)
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://api.coinpaprika.com](https://api.coinpaprika.com)
 

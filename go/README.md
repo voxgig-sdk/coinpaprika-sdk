@@ -284,7 +284,7 @@ API path: `/coins`
 | `"last_updated"` |  |
 | `"max_supply"` |  |
 | `"name"` |  |
-| `"quote"` |  |
+| `"quotes"` |  |
 | `"rank"` |  |
 | `"symbol"` |  |
 | `"total_supply"` |  |
@@ -352,7 +352,7 @@ Create an instance: `ticker := client.Ticker(nil)`
 | `last_updated` | `string` |  |
 | `max_supply` | `float64` |  |
 | `name` | `string` |  |
-| `quote` | `map[string]any` |  |
+| `quotes` | `map[string]any` |  |
 | `rank` | `int` |  |
 | `symbol` | `string` |  |
 | `total_supply` | `float64` |  |

@@ -63,7 +63,7 @@ describe('CoinEntity', async () => {
     const coin_ref01_ent = client.Coin()
     const coin_ref01_match: any = {}
 
-    const coin_ref01_list = await coin_ref01_ent.list(coin_ref01_match)
+    const coin_ref01_list = (await coin_ref01_ent.list(coin_ref01_match)).map((e: any) => e.data())
 
 
   })

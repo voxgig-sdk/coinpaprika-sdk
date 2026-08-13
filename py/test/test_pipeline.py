@@ -16,11 +16,11 @@
 import pytest
 
 from coinpaprika_sdk import CoinpaprikaSDK
-from core.error import CoinpaprikaError
-from core.result import CoinpaprikaResult
-from core.response import CoinpaprikaResponse
-from core.spec import CoinpaprikaSpec
-from feature.base_feature import CoinpaprikaBaseFeature
+from coinpaprika_sdk.core.error import CoinpaprikaError
+from coinpaprika_sdk.core.result import CoinpaprikaResult
+from coinpaprika_sdk.core.response import CoinpaprikaResponse
+from coinpaprika_sdk.core.spec import CoinpaprikaSpec
+from coinpaprika_sdk.feature.base_feature import CoinpaprikaBaseFeature
 
 
 def _client():

@@ -166,7 +166,7 @@ fmt.Println(ticker.GetName()) // "ticker"
 | `last_updated` | `string` | No |  |
 | `max_supply` | `float64` | No |  |
 | `name` | `string` | No |  |
-| `quote` | `map[string]any` | No |  |
+| `quotes` | `map[string]any` | No |  |
 | `rank` | `int` | No |  |
 | `symbol` | `string` | No |  |
 | `total_supply` | `float64` | No |  |

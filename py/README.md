@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CoinpaprikaSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 coin = client.Coin().list()
 # coin contains the mock response record
 ```
@@ -221,7 +222,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -266,7 +267,7 @@ API path: `/coins`
 | `last_updated` |  |
 | `max_supply` |  |
 | `name` |  |
-| `quote` |  |
+| `quotes` |  |
 | `rank` |  |
 | `symbol` |  |
 | `total_supply` |  |
@@ -330,7 +331,7 @@ Create an instance: `ticker = client.Ticker()`
 | `last_updated` | `str` |  |
 | `max_supply` | `float` |  |
 | `name` | `str` |  |
-| `quote` | `dict` |  |
+| `quotes` | `dict` |  |
 | `rank` | `int` |  |
 | `symbol` | `str` |  |
 | `total_supply` | `float` |  |

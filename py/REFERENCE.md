@@ -157,7 +157,7 @@ ticker = client.Ticker()
 | `last_updated` | `str` | No |  |
 | `max_supply` | `float` | No |  |
 | `name` | `str` | No |  |
-| `quote` | `dict` | No |  |
+| `quotes` | `dict` | No |  |
 | `rank` | `int` | No |  |
 | `symbol` | `str` | No |  |
 | `total_supply` | `float` | No |  |

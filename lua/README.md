@@ -219,9 +219,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local coin, err = client:Coin():load()
+    local coin, err = client:Coin():list()
     if err then error(err) end
-    -- coin is the loaded record
+    -- coin is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -255,7 +255,7 @@ API path: `/coins`
 | `last_updated` |  |
 | `max_supply` |  |
 | `name` |  |
-| `quote` |  |
+| `quotes` |  |
 | `rank` |  |
 | `symbol` |  |
 | `total_supply` |  |
@@ -319,7 +319,7 @@ Create an instance: `local ticker = client:Ticker(nil)`
 | `last_updated` | `string` |  |
 | `max_supply` | `number` |  |
 | `name` | `string` |  |
-| `quote` | `table` |  |
+| `quotes` | `table` |  |
 | `rank` | `number` |  |
 | `symbol` | `string` |  |
 | `total_supply` | `number` |  |
