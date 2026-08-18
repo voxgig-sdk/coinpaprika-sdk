@@ -28,7 +28,7 @@ class CoinpaprikaSDK
     utility = CoinpaprikaUtility.new
     @_utility = utility
 
-    config = CoinpaprikaConfig.make_config
+    config = CoinpaprikaConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

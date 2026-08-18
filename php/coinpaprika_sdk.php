@@ -40,7 +40,7 @@ class CoinpaprikaSDK
         $utility = new CoinpaprikaUtility();
         $this->_utility = $utility;
 
-        $config = CoinpaprikaConfig::make_config();
+        $config = CoinpaprikaConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

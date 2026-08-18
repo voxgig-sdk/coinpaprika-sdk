@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class CoinpaprikaConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -32,53 +55,32 @@ class CoinpaprikaConfig
         'coin' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'id',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'is_active',
-              'req' => false,
               'type' => '`$BOOLEAN`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'is_new',
-              'req' => false,
               'type' => '`$BOOLEAN`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'name',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'rank',
-              'req' => false,
               'type' => '`$INTEGER`',
-              'index$' => 4,
             ],
             [
-              'active' => true,
               'name' => 'symbol',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 5,
             ],
             [
-              'active' => true,
               'name' => 'type',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 6,
             ],
           ],
           'name' => 'coin',
@@ -88,7 +90,6 @@ class CoinpaprikaConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
@@ -101,10 +102,8 @@ class CoinpaprikaConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
           ],
           'relations' => [
@@ -114,81 +113,48 @@ class CoinpaprikaConfig
         'ticker' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'beta_value',
-              'req' => false,
               'type' => '`$NUMBER`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'circulating_supply',
-              'req' => false,
               'type' => '`$NUMBER`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'first_data_at',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'id',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'last_updated',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 4,
             ],
             [
-              'active' => true,
               'name' => 'max_supply',
-              'req' => false,
               'type' => '`$NUMBER`',
-              'index$' => 5,
             ],
             [
-              'active' => true,
               'name' => 'name',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 6,
             ],
             [
-              'active' => true,
               'name' => 'quotes',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 7,
             ],
             [
-              'active' => true,
               'name' => 'rank',
-              'req' => false,
               'type' => '`$INTEGER`',
-              'index$' => 8,
             ],
             [
-              'active' => true,
               'name' => 'symbol',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 9,
             ],
             [
-              'active' => true,
               'name' => 'total_supply',
-              'req' => false,
               'type' => '`$NUMBER`',
-              'index$' => 10,
             ],
           ],
           'name' => 'ticker',
@@ -198,16 +164,13 @@ class CoinpaprikaConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'example' => 'USD',
                         'kind' => 'query',
                         'name' => 'quote',
                         'orig' => 'quote',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -227,10 +190,8 @@ class CoinpaprikaConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
           ],
           'relations' => [

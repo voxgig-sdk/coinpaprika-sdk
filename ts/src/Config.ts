@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://api.coinpaprika.com/v1',
+    base: "https://api.coinpaprika.com/v1",
 
     headers: {
       "content-type": "application/json"
@@ -58,53 +58,32 @@ class Config {
     "coin": {
       "fields": [
         {
-          "active": true,
           "name": "id",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "is_active",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 1
+          "type": "`$BOOLEAN`"
         },
         {
-          "active": true,
           "name": "is_new",
-          "req": false,
-          "type": "`$BOOLEAN`",
-          "index$": 2
+          "type": "`$BOOLEAN`"
         },
         {
-          "active": true,
           "name": "name",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "rank",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 4
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "symbol",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 5
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "type",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 6
+          "type": "`$STRING`"
         }
       ],
       "name": "coin",
@@ -114,7 +93,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -126,11 +104,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {
@@ -140,81 +116,48 @@ class Config {
     "ticker": {
       "fields": [
         {
-          "active": true,
           "name": "beta_value",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 0
+          "type": "`$NUMBER`"
         },
         {
-          "active": true,
           "name": "circulating_supply",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 1
+          "type": "`$NUMBER`"
         },
         {
-          "active": true,
           "name": "first_data_at",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "id",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "last_updated",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "max_supply",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 5
+          "type": "`$NUMBER`"
         },
         {
-          "active": true,
           "name": "name",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 6
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "quotes",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 7
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "rank",
-          "req": false,
-          "type": "`$INTEGER`",
-          "index$": 8
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "symbol",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 9
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "total_supply",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 10
+          "type": "`$NUMBER`"
         }
       ],
       "name": "ticker",
@@ -224,16 +167,13 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "example": "USD",
                     "kind": "query",
                     "name": "quote",
                     "orig": "quote",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -252,11 +192,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {

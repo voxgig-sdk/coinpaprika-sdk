@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from coinpaprika_sdk.config import make_config
+from coinpaprika_sdk.config import shared_config
 from coinpaprika_sdk.features import _make_feature
 from coinpaprika_sdk.core.control import CoinpaprikaControl
 from coinpaprika_sdk.core.error import CoinpaprikaError
@@ -24,7 +24,7 @@ from coinpaprika_sdk.core.spec import CoinpaprikaSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 
