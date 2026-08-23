@@ -36,42 +36,49 @@
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the coin",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "is_active",
               "req": false,
+              "short": "Indicates if the coin is active",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "is_new",
               "req": false,
+              "short": "Indicates if the coin is new",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the cryptocurrency",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "rank",
               "req": false,
+              "short": "Market cap rank",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "symbol",
               "req": false,
+              "short": "Ticker symbol of the cryptocurrency",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Type of cryptocurrency (coin or token)",
               "type": "`$STRING`"
             }
           ],
@@ -117,66 +124,77 @@
               "active": true,
               "name": "beta_value",
               "req": false,
+              "short": "Beta value for the coin",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "circulating_supply",
               "req": false,
+              "short": "Circulating supply of the coin",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "first_data_at",
               "req": false,
+              "short": "Date of first data availability",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the coin",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "last_updated",
               "req": false,
+              "short": "Last update timestamp",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "max_supply",
               "req": false,
+              "short": "Maximum supply of the coin",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the cryptocurrency",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "quotes",
               "req": false,
+              "short": "Price and market data in different quote currencies",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "rank",
               "req": false,
+              "short": "Market cap rank",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "symbol",
               "req": false,
+              "short": "Ticker symbol of the cryptocurrency",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "total_supply",
               "req": false,
+              "short": "Total supply of the coin",
               "type": "`$NUMBER`"
             }
           ],

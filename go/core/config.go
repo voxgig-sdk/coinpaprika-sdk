@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Coinpaprika",
+			"slug": "coinpaprika",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,30 +37,37 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the coin",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "is_active",
+						"short": "Indicates if the coin is active",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "is_new",
+						"short": "Indicates if the coin is new",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the cryptocurrency",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rank",
+						"short": "Market cap rank",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "symbol",
+						"short": "Ticker symbol of the cryptocurrency",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Type of cryptocurrency (coin or token)",
 						"type": "`$STRING`",
 					},
 				},
@@ -92,46 +102,57 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "beta_value",
+						"short": "Beta value for the coin",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "circulating_supply",
+						"short": "Circulating supply of the coin",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "first_data_at",
+						"short": "Date of first data availability",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the coin",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "last_updated",
+						"short": "Last update timestamp",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "max_supply",
+						"short": "Maximum supply of the coin",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the cryptocurrency",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "quotes",
+						"short": "Price and market data in different quote currencies",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "rank",
+						"short": "Market cap rank",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "symbol",
+						"short": "Ticker symbol of the cryptocurrency",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "total_supply",
+						"short": "Total supply of the coin",
 						"type": "`$NUMBER`",
 					},
 				},

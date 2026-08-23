@@ -238,13 +238,13 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `is_active` |  |
-| `is_new` |  |
-| `name` |  |
-| `rank` |  |
-| `symbol` |  |
-| `type` |  |
+| `id` | Unique identifier for the coin |
+| `is_active` | Indicates if the coin is active |
+| `is_new` | Indicates if the coin is new |
+| `name` | Name of the cryptocurrency |
+| `rank` | Market cap rank |
+| `symbol` | Ticker symbol of the cryptocurrency |
+| `type` | Type of cryptocurrency (coin or token) |
 
 Operations: List.
 
@@ -254,17 +254,17 @@ API path: `/coins`
 
 | Field | Description |
 | --- | --- |
-| `beta_value` |  |
-| `circulating_supply` |  |
-| `first_data_at` |  |
-| `id` |  |
-| `last_updated` |  |
-| `max_supply` |  |
-| `name` |  |
-| `quotes` |  |
-| `rank` |  |
-| `symbol` |  |
-| `total_supply` |  |
+| `beta_value` | Beta value for the coin |
+| `circulating_supply` | Circulating supply of the coin |
+| `first_data_at` | Date of first data availability |
+| `id` | Unique identifier for the coin |
+| `last_updated` | Last update timestamp |
+| `max_supply` | Maximum supply of the coin |
+| `name` | Name of the cryptocurrency |
+| `quotes` | Price and market data in different quote currencies |
+| `rank` | Market cap rank |
+| `symbol` | Ticker symbol of the cryptocurrency |
+| `total_supply` | Total supply of the coin |
 
 Operations: List.
 
@@ -289,13 +289,13 @@ Create an instance: `coin = client.Coin`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `String` |  |
-| `is_active` | `Boolean` |  |
-| `is_new` | `Boolean` |  |
-| `name` | `String` |  |
-| `rank` | `Integer` |  |
-| `symbol` | `String` |  |
-| `type` | `String` |  |
+| `id` | `String` | Unique identifier for the coin |
+| `is_active` | `Boolean` | Indicates if the coin is active |
+| `is_new` | `Boolean` | Indicates if the coin is new |
+| `name` | `String` | Name of the cryptocurrency |
+| `rank` | `Integer` | Market cap rank |
+| `symbol` | `String` | Ticker symbol of the cryptocurrency |
+| `type` | `String` | Type of cryptocurrency (coin or token) |
 
 #### Example: List
 
@@ -319,17 +319,17 @@ Create an instance: `ticker = client.Ticker`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `beta_value` | `Float` |  |
-| `circulating_supply` | `Float` |  |
-| `first_data_at` | `String` |  |
-| `id` | `String` |  |
-| `last_updated` | `String` |  |
-| `max_supply` | `Float` |  |
-| `name` | `String` |  |
-| `quotes` | `Hash` |  |
-| `rank` | `Integer` |  |
-| `symbol` | `String` |  |
-| `total_supply` | `Float` |  |
+| `beta_value` | `Float` | Beta value for the coin |
+| `circulating_supply` | `Float` | Circulating supply of the coin |
+| `first_data_at` | `String` | Date of first data availability |
+| `id` | `String` | Unique identifier for the coin |
+| `last_updated` | `String` | Last update timestamp |
+| `max_supply` | `Float` | Maximum supply of the coin |
+| `name` | `String` | Name of the cryptocurrency |
+| `quotes` | `Hash` | Price and market data in different quote currencies |
+| `rank` | `Integer` | Market cap rank |
+| `symbol` | `String` | Ticker symbol of the cryptocurrency |
+| `total_supply` | `Float` | Total supply of the coin |
 
 #### Example: List
 

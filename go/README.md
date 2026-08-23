@@ -6,7 +6,7 @@ The Golang SDK for the Coinpaprika API — an entity-oriented client using stand
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Coin(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -261,13 +261,13 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
-| `"is_active"` |  |
-| `"is_new"` |  |
-| `"name"` |  |
-| `"rank"` |  |
-| `"symbol"` |  |
-| `"type"` |  |
+| `"id"` | Unique identifier for the coin |
+| `"is_active"` | Indicates if the coin is active |
+| `"is_new"` | Indicates if the coin is new |
+| `"name"` | Name of the cryptocurrency |
+| `"rank"` | Market cap rank |
+| `"symbol"` | Ticker symbol of the cryptocurrency |
+| `"type"` | Type of cryptocurrency (coin or token) |
 
 Operations: List.
 
@@ -277,17 +277,17 @@ API path: `/coins`
 
 | Field | Description |
 | --- | --- |
-| `"beta_value"` |  |
-| `"circulating_supply"` |  |
-| `"first_data_at"` |  |
-| `"id"` |  |
-| `"last_updated"` |  |
-| `"max_supply"` |  |
-| `"name"` |  |
-| `"quotes"` |  |
-| `"rank"` |  |
-| `"symbol"` |  |
-| `"total_supply"` |  |
+| `"beta_value"` | Beta value for the coin |
+| `"circulating_supply"` | Circulating supply of the coin |
+| `"first_data_at"` | Date of first data availability |
+| `"id"` | Unique identifier for the coin |
+| `"last_updated"` | Last update timestamp |
+| `"max_supply"` | Maximum supply of the coin |
+| `"name"` | Name of the cryptocurrency |
+| `"quotes"` | Price and market data in different quote currencies |
+| `"rank"` | Market cap rank |
+| `"symbol"` | Ticker symbol of the cryptocurrency |
+| `"total_supply"` | Total supply of the coin |
 
 Operations: List.
 
@@ -312,13 +312,13 @@ Create an instance: `coin := client.Coin(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `is_active` | `bool` |  |
-| `is_new` | `bool` |  |
-| `name` | `string` |  |
-| `rank` | `int` |  |
-| `symbol` | `string` |  |
-| `type` | `string` |  |
+| `id` | `string` | Unique identifier for the coin |
+| `is_active` | `bool` | Indicates if the coin is active |
+| `is_new` | `bool` | Indicates if the coin is new |
+| `name` | `string` | Name of the cryptocurrency |
+| `rank` | `int` | Market cap rank |
+| `symbol` | `string` | Ticker symbol of the cryptocurrency |
+| `type` | `string` | Type of cryptocurrency (coin or token) |
 
 #### Example: List
 
@@ -345,17 +345,17 @@ Create an instance: `ticker := client.Ticker(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `beta_value` | `float64` |  |
-| `circulating_supply` | `float64` |  |
-| `first_data_at` | `string` |  |
-| `id` | `string` |  |
-| `last_updated` | `string` |  |
-| `max_supply` | `float64` |  |
-| `name` | `string` |  |
-| `quotes` | `map[string]any` |  |
-| `rank` | `int` |  |
-| `symbol` | `string` |  |
-| `total_supply` | `float64` |  |
+| `beta_value` | `float64` | Beta value for the coin |
+| `circulating_supply` | `float64` | Circulating supply of the coin |
+| `first_data_at` | `string` | Date of first data availability |
+| `id` | `string` | Unique identifier for the coin |
+| `last_updated` | `string` | Last update timestamp |
+| `max_supply` | `float64` | Maximum supply of the coin |
+| `name` | `string` | Name of the cryptocurrency |
+| `quotes` | `map[string]any` | Price and market data in different quote currencies |
+| `rank` | `int` | Market cap rank |
+| `symbol` | `string` | Ticker symbol of the cryptocurrency |
+| `total_supply` | `float64` | Total supply of the coin |
 
 #### Example: List
 

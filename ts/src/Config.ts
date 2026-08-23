@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Coinpaprika',
+        slug: "coinpaprika",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -59,30 +70,37 @@ class Config {
       "fields": [
         {
           "name": "id",
+          "short": "Unique identifier for the coin",
           "type": "`$STRING`"
         },
         {
           "name": "is_active",
+          "short": "Indicates if the coin is active",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "is_new",
+          "short": "Indicates if the coin is new",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "name",
+          "short": "Name of the cryptocurrency",
           "type": "`$STRING`"
         },
         {
           "name": "rank",
+          "short": "Market cap rank",
           "type": "`$INTEGER`"
         },
         {
           "name": "symbol",
+          "short": "Ticker symbol of the cryptocurrency",
           "type": "`$STRING`"
         },
         {
           "name": "type",
+          "short": "Type of cryptocurrency (coin or token)",
           "type": "`$STRING`"
         }
       ],
@@ -117,46 +135,57 @@ class Config {
       "fields": [
         {
           "name": "beta_value",
+          "short": "Beta value for the coin",
           "type": "`$NUMBER`"
         },
         {
           "name": "circulating_supply",
+          "short": "Circulating supply of the coin",
           "type": "`$NUMBER`"
         },
         {
           "name": "first_data_at",
+          "short": "Date of first data availability",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the coin",
           "type": "`$STRING`"
         },
         {
           "name": "last_updated",
+          "short": "Last update timestamp",
           "type": "`$STRING`"
         },
         {
           "name": "max_supply",
+          "short": "Maximum supply of the coin",
           "type": "`$NUMBER`"
         },
         {
           "name": "name",
+          "short": "Name of the cryptocurrency",
           "type": "`$STRING`"
         },
         {
           "name": "quotes",
+          "short": "Price and market data in different quote currencies",
           "type": "`$OBJECT`"
         },
         {
           "name": "rank",
+          "short": "Market cap rank",
           "type": "`$INTEGER`"
         },
         {
           "name": "symbol",
+          "short": "Ticker symbol of the cryptocurrency",
           "type": "`$STRING`"
         },
         {
           "name": "total_supply",
+          "short": "Total supply of the coin",
           "type": "`$NUMBER`"
         }
       ],

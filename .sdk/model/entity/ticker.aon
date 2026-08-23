@@ -8,56 +8,67 @@ main: kit: entity: ticker: {
     {
       name: "beta_value"
       req: false
+      short: "Beta value for the coin"
       type: "`$NUMBER`"
     }
     {
       name: "circulating_supply"
       req: false
+      short: "Circulating supply of the coin"
       type: "`$NUMBER`"
     }
     {
       name: "first_data_at"
       req: false
+      short: "Date of first data availability"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the coin"
       type: "`$STRING`"
     }
     {
       name: "last_updated"
       req: false
+      short: "Last update timestamp"
       type: "`$STRING`"
     }
     {
       name: "max_supply"
       req: false
+      short: "Maximum supply of the coin"
       type: "`$NUMBER`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the cryptocurrency"
       type: "`$STRING`"
     }
     {
       name: "quotes"
       req: false
+      short: "Price and market data in different quote currencies"
       type: "`$OBJECT`"
     }
     {
       name: "rank"
       req: false
+      short: "Market cap rank"
       type: "`$INTEGER`"
     }
     {
       name: "symbol"
       req: false
+      short: "Ticker symbol of the cryptocurrency"
       type: "`$STRING`"
     }
     {
       name: "total_supply"
       req: false
+      short: "Total supply of the coin"
       type: "`$NUMBER`"
     }
   ]

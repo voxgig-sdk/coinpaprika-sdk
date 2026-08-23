@@ -94,13 +94,13 @@ local coin = client:Coin(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
-| `is_active` | `boolean` | No |  |
-| `is_new` | `boolean` | No |  |
-| `name` | `string` | No |  |
-| `rank` | `number` | No |  |
-| `symbol` | `string` | No |  |
-| `type` | `string` | No |  |
+| `id` | `string` | No | Unique identifier for the coin |
+| `is_active` | `boolean` | No | Indicates if the coin is active |
+| `is_new` | `boolean` | No | Indicates if the coin is new |
+| `name` | `string` | No | Name of the cryptocurrency |
+| `rank` | `number` | No | Market cap rank |
+| `symbol` | `string` | No | Ticker symbol of the cryptocurrency |
+| `type` | `string` | No | Type of cryptocurrency (coin or token) |
 
 ### Operations
 
@@ -152,17 +152,17 @@ local ticker = client:Ticker(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `beta_value` | `number` | No |  |
-| `circulating_supply` | `number` | No |  |
-| `first_data_at` | `string` | No |  |
-| `id` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `max_supply` | `number` | No |  |
-| `name` | `string` | No |  |
-| `quotes` | `table` | No |  |
-| `rank` | `number` | No |  |
-| `symbol` | `string` | No |  |
-| `total_supply` | `number` | No |  |
+| `beta_value` | `number` | No | Beta value for the coin |
+| `circulating_supply` | `number` | No | Circulating supply of the coin |
+| `first_data_at` | `string` | No | Date of first data availability |
+| `id` | `string` | No | Unique identifier for the coin |
+| `last_updated` | `string` | No | Last update timestamp |
+| `max_supply` | `number` | No | Maximum supply of the coin |
+| `name` | `string` | No | Name of the cryptocurrency |
+| `quotes` | `table` | No | Price and market data in different quote currencies |
+| `rank` | `number` | No | Market cap rank |
+| `symbol` | `string` | No | Ticker symbol of the cryptocurrency |
+| `total_supply` | `number` | No | Total supply of the coin |
 
 ### Operations
 

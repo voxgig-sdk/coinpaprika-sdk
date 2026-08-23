@@ -97,13 +97,13 @@ coin = client.Coin
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `String` | No |  |
-| `is_active` | `Boolean` | No |  |
-| `is_new` | `Boolean` | No |  |
-| `name` | `String` | No |  |
-| `rank` | `Integer` | No |  |
-| `symbol` | `String` | No |  |
-| `type` | `String` | No |  |
+| `id` | `String` | No | Unique identifier for the coin |
+| `is_active` | `Boolean` | No | Indicates if the coin is active |
+| `is_new` | `Boolean` | No | Indicates if the coin is new |
+| `name` | `String` | No | Name of the cryptocurrency |
+| `rank` | `Integer` | No | Market cap rank |
+| `symbol` | `String` | No | Ticker symbol of the cryptocurrency |
+| `type` | `String` | No | Type of cryptocurrency (coin or token) |
 
 ### Operations
 
@@ -155,17 +155,17 @@ ticker = client.Ticker
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `beta_value` | `Float` | No |  |
-| `circulating_supply` | `Float` | No |  |
-| `first_data_at` | `String` | No |  |
-| `id` | `String` | No |  |
-| `last_updated` | `String` | No |  |
-| `max_supply` | `Float` | No |  |
-| `name` | `String` | No |  |
-| `quotes` | `Hash` | No |  |
-| `rank` | `Integer` | No |  |
-| `symbol` | `String` | No |  |
-| `total_supply` | `Float` | No |  |
+| `beta_value` | `Float` | No | Beta value for the coin |
+| `circulating_supply` | `Float` | No | Circulating supply of the coin |
+| `first_data_at` | `String` | No | Date of first data availability |
+| `id` | `String` | No | Unique identifier for the coin |
+| `last_updated` | `String` | No | Last update timestamp |
+| `max_supply` | `Float` | No | Maximum supply of the coin |
+| `name` | `String` | No | Name of the cryptocurrency |
+| `quotes` | `Hash` | No | Price and market data in different quote currencies |
+| `rank` | `Integer` | No | Market cap rank |
+| `symbol` | `String` | No | Ticker symbol of the cryptocurrency |
+| `total_supply` | `Float` | No | Total supply of the coin |
 
 ### Operations
 

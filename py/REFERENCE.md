@@ -91,13 +91,13 @@ coin = client.Coin()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | No |  |
-| `is_active` | `bool` | No |  |
-| `is_new` | `bool` | No |  |
-| `name` | `str` | No |  |
-| `rank` | `int` | No |  |
-| `symbol` | `str` | No |  |
-| `type` | `str` | No |  |
+| `id` | `str` | No | Unique identifier for the coin |
+| `is_active` | `bool` | No | Indicates if the coin is active |
+| `is_new` | `bool` | No | Indicates if the coin is new |
+| `name` | `str` | No | Name of the cryptocurrency |
+| `rank` | `int` | No | Market cap rank |
+| `symbol` | `str` | No | Ticker symbol of the cryptocurrency |
+| `type` | `str` | No | Type of cryptocurrency (coin or token) |
 
 ### Operations
 
@@ -150,17 +150,17 @@ ticker = client.Ticker()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `beta_value` | `float` | No |  |
-| `circulating_supply` | `float` | No |  |
-| `first_data_at` | `str` | No |  |
-| `id` | `str` | No |  |
-| `last_updated` | `str` | No |  |
-| `max_supply` | `float` | No |  |
-| `name` | `str` | No |  |
-| `quotes` | `dict` | No |  |
-| `rank` | `int` | No |  |
-| `symbol` | `str` | No |  |
-| `total_supply` | `float` | No |  |
+| `beta_value` | `float` | No | Beta value for the coin |
+| `circulating_supply` | `float` | No | Circulating supply of the coin |
+| `first_data_at` | `str` | No | Date of first data availability |
+| `id` | `str` | No | Unique identifier for the coin |
+| `last_updated` | `str` | No | Last update timestamp |
+| `max_supply` | `float` | No | Maximum supply of the coin |
+| `name` | `str` | No | Name of the cryptocurrency |
+| `quotes` | `dict` | No | Price and market data in different quote currencies |
+| `rank` | `int` | No | Market cap rank |
+| `symbol` | `str` | No | Ticker symbol of the cryptocurrency |
+| `total_supply` | `float` | No | Total supply of the coin |
 
 ### Operations
 

@@ -102,13 +102,13 @@ fmt.Println(coin.GetName()) // "coin"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | No |  |
-| `is_active` | `bool` | No |  |
-| `is_new` | `bool` | No |  |
-| `name` | `string` | No |  |
-| `rank` | `int` | No |  |
-| `symbol` | `string` | No |  |
-| `type` | `string` | No |  |
+| `id` | `string` | No | Unique identifier for the coin |
+| `is_active` | `bool` | No | Indicates if the coin is active |
+| `is_new` | `bool` | No | Indicates if the coin is new |
+| `name` | `string` | No | Name of the cryptocurrency |
+| `rank` | `int` | No | Market cap rank |
+| `symbol` | `string` | No | Ticker symbol of the cryptocurrency |
+| `type` | `string` | No | Type of cryptocurrency (coin or token) |
 
 ### Operations
 
@@ -159,17 +159,17 @@ fmt.Println(ticker.GetName()) // "ticker"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `beta_value` | `float64` | No |  |
-| `circulating_supply` | `float64` | No |  |
-| `first_data_at` | `string` | No |  |
-| `id` | `string` | No |  |
-| `last_updated` | `string` | No |  |
-| `max_supply` | `float64` | No |  |
-| `name` | `string` | No |  |
-| `quotes` | `map[string]any` | No |  |
-| `rank` | `int` | No |  |
-| `symbol` | `string` | No |  |
-| `total_supply` | `float64` | No |  |
+| `beta_value` | `float64` | No | Beta value for the coin |
+| `circulating_supply` | `float64` | No | Circulating supply of the coin |
+| `first_data_at` | `string` | No | Date of first data availability |
+| `id` | `string` | No | Unique identifier for the coin |
+| `last_updated` | `string` | No | Last update timestamp |
+| `max_supply` | `float64` | No | Maximum supply of the coin |
+| `name` | `string` | No | Name of the cryptocurrency |
+| `quotes` | `map[string]any` | No | Price and market data in different quote currencies |
+| `rank` | `int` | No | Market cap rank |
+| `symbol` | `string` | No | Ticker symbol of the cryptocurrency |
+| `total_supply` | `float64` | No | Total supply of the coin |
 
 ### Operations
 

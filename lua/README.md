@@ -232,13 +232,13 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `is_active` |  |
-| `is_new` |  |
-| `name` |  |
-| `rank` |  |
-| `symbol` |  |
-| `type` |  |
+| `id` | Unique identifier for the coin |
+| `is_active` | Indicates if the coin is active |
+| `is_new` | Indicates if the coin is new |
+| `name` | Name of the cryptocurrency |
+| `rank` | Market cap rank |
+| `symbol` | Ticker symbol of the cryptocurrency |
+| `type` | Type of cryptocurrency (coin or token) |
 
 Operations: List.
 
@@ -248,17 +248,17 @@ API path: `/coins`
 
 | Field | Description |
 | --- | --- |
-| `beta_value` |  |
-| `circulating_supply` |  |
-| `first_data_at` |  |
-| `id` |  |
-| `last_updated` |  |
-| `max_supply` |  |
-| `name` |  |
-| `quotes` |  |
-| `rank` |  |
-| `symbol` |  |
-| `total_supply` |  |
+| `beta_value` | Beta value for the coin |
+| `circulating_supply` | Circulating supply of the coin |
+| `first_data_at` | Date of first data availability |
+| `id` | Unique identifier for the coin |
+| `last_updated` | Last update timestamp |
+| `max_supply` | Maximum supply of the coin |
+| `name` | Name of the cryptocurrency |
+| `quotes` | Price and market data in different quote currencies |
+| `rank` | Market cap rank |
+| `symbol` | Ticker symbol of the cryptocurrency |
+| `total_supply` | Total supply of the coin |
 
 Operations: List.
 
@@ -283,13 +283,13 @@ Create an instance: `local coin = client:Coin(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `is_active` | `boolean` |  |
-| `is_new` | `boolean` |  |
-| `name` | `string` |  |
-| `rank` | `number` |  |
-| `symbol` | `string` |  |
-| `type` | `string` |  |
+| `id` | `string` | Unique identifier for the coin |
+| `is_active` | `boolean` | Indicates if the coin is active |
+| `is_new` | `boolean` | Indicates if the coin is new |
+| `name` | `string` | Name of the cryptocurrency |
+| `rank` | `number` | Market cap rank |
+| `symbol` | `string` | Ticker symbol of the cryptocurrency |
+| `type` | `string` | Type of cryptocurrency (coin or token) |
 
 #### Example: List
 
@@ -312,17 +312,17 @@ Create an instance: `local ticker = client:Ticker(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `beta_value` | `number` |  |
-| `circulating_supply` | `number` |  |
-| `first_data_at` | `string` |  |
-| `id` | `string` |  |
-| `last_updated` | `string` |  |
-| `max_supply` | `number` |  |
-| `name` | `string` |  |
-| `quotes` | `table` |  |
-| `rank` | `number` |  |
-| `symbol` | `string` |  |
-| `total_supply` | `number` |  |
+| `beta_value` | `number` | Beta value for the coin |
+| `circulating_supply` | `number` | Circulating supply of the coin |
+| `first_data_at` | `string` | Date of first data availability |
+| `id` | `string` | Unique identifier for the coin |
+| `last_updated` | `string` | Last update timestamp |
+| `max_supply` | `number` | Maximum supply of the coin |
+| `name` | `string` | Name of the cryptocurrency |
+| `quotes` | `table` | Price and market data in different quote currencies |
+| `rank` | `number` | Market cap rank |
+| `symbol` | `string` | Ticker symbol of the cryptocurrency |
+| `total_supply` | `number` | Total supply of the coin |
 
 #### Example: List
 

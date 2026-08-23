@@ -8,36 +8,43 @@ main: kit: entity: coin: {
     {
       name: "id"
       req: false
+      short: "Unique identifier for the coin"
       type: "`$STRING`"
     }
     {
       name: "is_active"
       req: false
+      short: "Indicates if the coin is active"
       type: "`$BOOLEAN`"
     }
     {
       name: "is_new"
       req: false
+      short: "Indicates if the coin is new"
       type: "`$BOOLEAN`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the cryptocurrency"
       type: "`$STRING`"
     }
     {
       name: "rank"
       req: false
+      short: "Market cap rank"
       type: "`$INTEGER`"
     }
     {
       name: "symbol"
       req: false
+      short: "Ticker symbol of the cryptocurrency"
       type: "`$STRING`"
     }
     {
       name: "type"
       req: false
+      short: "Type of cryptocurrency (coin or token)"
       type: "`$STRING`"
     }
   ]
