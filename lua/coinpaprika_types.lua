@@ -38,17 +38,7 @@
 ---@field total_supply? number
 
 ---@class TickerListMatch
----@field beta_value? number
----@field circulating_supply? number
----@field first_data_at? string
----@field id? string
----@field last_updated? string
----@field max_supply? number
----@field name? string
----@field quotes? table
----@field rank? number
----@field symbol? string
----@field total_supply? number
+---@field quote? string
 
 local M = {}
 

@@ -125,50 +125,10 @@ Ticker = Struct.new(
 
 # Request payload for Ticker#list.
 #
-# @!attribute [rw] beta_value
-#   @return [Float, nil]
-#
-# @!attribute [rw] circulating_supply
-#   @return [Float, nil]
-#
-# @!attribute [rw] first_data_at
+# @!attribute [rw] quote
 #   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] last_updated
-#   @return [String, nil]
-#
-# @!attribute [rw] max_supply
-#   @return [Float, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] quotes
-#   @return [Hash, nil]
-#
-# @!attribute [rw] rank
-#   @return [Integer, nil]
-#
-# @!attribute [rw] symbol
-#   @return [String, nil]
-#
-# @!attribute [rw] total_supply
-#   @return [Float, nil]
 TickerListMatch = Struct.new(
-  :beta_value,
-  :circulating_supply,
-  :first_data_at,
-  :id,
-  :last_updated,
-  :max_supply,
-  :name,
-  :quotes,
-  :rank,
-  :symbol,
-  :total_supply,
+  :quote,
   keyword_init: true
 )
 

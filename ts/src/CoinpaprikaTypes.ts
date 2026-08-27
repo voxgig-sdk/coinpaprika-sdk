@@ -40,16 +40,6 @@ export interface Ticker {
 }
 
 export interface TickerListMatch {
-  beta_value?: number
-  circulating_supply?: number
-  first_data_at?: string
-  id?: string
-  last_updated?: string
-  max_supply?: number
-  name?: string
-  quotes?: Record<string, any>
-  rank?: number
-  symbol?: string
-  total_supply?: number
+  quote?: string
 }
 

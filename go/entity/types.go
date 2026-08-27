@@ -51,17 +51,7 @@ type Ticker struct {
 
 // TickerListMatch is the typed request payload for Ticker.ListTyped.
 type TickerListMatch struct {
-	BetaValue *float64 `json:"beta_value,omitempty"`
-	CirculatingSupply *float64 `json:"circulating_supply,omitempty"`
-	FirstDataAt *string `json:"first_data_at,omitempty"`
-	Id *string `json:"id,omitempty"`
-	LastUpdated *string `json:"last_updated,omitempty"`
-	MaxSupply *float64 `json:"max_supply,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Quotes *map[string]any `json:"quotes,omitempty"`
-	Rank *int `json:"rank,omitempty"`
-	Symbol *string `json:"symbol,omitempty"`
-	TotalSupply *float64 `json:"total_supply,omitempty"`
+	Quote *string `json:"quote,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

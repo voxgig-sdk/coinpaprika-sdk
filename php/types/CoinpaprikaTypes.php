@@ -55,16 +55,6 @@ class Ticker
 /** Request payload for Ticker#list. */
 class TickerListMatch
 {
-    public ?float $beta_value = null;
-    public ?float $circulating_supply = null;
-    public ?string $first_data_at = null;
-    public ?string $id = null;
-    public ?string $last_updated = null;
-    public ?float $max_supply = null;
-    public ?string $name = null;
-    public ?array $quotes = null;
-    public ?int $rank = null;
-    public ?string $symbol = null;
-    public ?float $total_supply = null;
+    public ?string $quote = null;
 }
 

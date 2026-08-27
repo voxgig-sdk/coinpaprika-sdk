@@ -51,14 +51,4 @@ class Ticker(TypedDict, total=False):
 
 
 class TickerListMatch(TypedDict, total=False):
-    beta_value: float
-    circulating_supply: float
-    first_data_at: str
-    id: str
-    last_updated: str
-    max_supply: float
-    name: str
-    quotes: dict
-    rank: int
-    symbol: str
-    total_supply: float
+    quote: str
