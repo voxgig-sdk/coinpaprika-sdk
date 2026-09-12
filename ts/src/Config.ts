@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -105,6 +116,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "coin",
       "op": {
         "list": {
@@ -116,14 +131,19 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/coins",
-              "parts": [
-                "coins"
+              "segments": [
+                {
+                  "lit": "coins"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "coins"
+              ]
             }
           ]
         }
@@ -145,6 +165,7 @@ class Config {
           "type": "`$NUMBER`"
         },
         {
+          "format": "date-time",
           "name": "first_data_at",
           "short": "Date of first data availability",
           "type": "`$STRING`"
@@ -155,6 +176,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "date-time",
           "name": "last_updated",
           "short": "Last update timestamp",
           "type": "`$STRING`"
@@ -190,6 +212,10 @@ class Config {
           "type": "`$NUMBER`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "ticker",
       "op": {
         "list": {
@@ -211,8 +237,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/tickers",
-              "parts": [
-                "tickers"
+              "segments": [
+                {
+                  "lit": "tickers"
+                }
               ],
               "select": {
                 "exist": [
@@ -222,7 +250,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "tickers"
+              ]
             }
           ]
         }
@@ -238,6 +269,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

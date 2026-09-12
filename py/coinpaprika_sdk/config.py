@@ -1,6 +1,14 @@
 # Coinpaprika SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -89,6 +97,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "coin",
         "op": {
           "list": {
@@ -100,14 +112,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/coins",
-                "parts": [
-                  "coins",
+                "segments": [
+                  {
+                    "lit": "coins",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "coins",
+                ],
               },
             ],
           },
@@ -129,6 +146,7 @@ def make_config():
             "type": "`$NUMBER`",
           },
           {
+            "format": "date-time",
             "name": "first_data_at",
             "short": "Date of first data availability",
             "type": "`$STRING`",
@@ -139,6 +157,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "last_updated",
             "short": "Last update timestamp",
             "type": "`$STRING`",
@@ -174,6 +193,10 @@ def make_config():
             "type": "`$NUMBER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "ticker",
         "op": {
           "list": {
@@ -195,8 +218,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/tickers",
-                "parts": [
-                  "tickers",
+                "segments": [
+                  {
+                    "lit": "tickers",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -207,6 +232,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "tickers",
+                ],
               },
             ],
           },

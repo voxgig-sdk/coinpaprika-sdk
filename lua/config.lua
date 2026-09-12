@@ -68,6 +68,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "coin",
         ["op"] = {
           ["list"] = {
@@ -79,13 +83,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/coins",
-                ["parts"] = {
-                  "coins",
+                ["segments"] = {
+                  {
+                    ["lit"] = "coins",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "coins",
                 },
               },
             },
@@ -108,6 +117,7 @@ local function make_config()
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "first_data_at",
             ["short"] = "Date of first data availability",
             ["type"] = "`$STRING`",
@@ -118,6 +128,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "last_updated",
             ["short"] = "Last update timestamp",
             ["type"] = "`$STRING`",
@@ -153,6 +164,10 @@ local function make_config()
             ["type"] = "`$NUMBER`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "ticker",
         ["op"] = {
           ["list"] = {
@@ -174,8 +189,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tickers",
-                ["parts"] = {
-                  "tickers",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tickers",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -185,6 +202,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "tickers",
                 },
               },
             },

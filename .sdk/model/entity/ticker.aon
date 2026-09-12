@@ -18,6 +18,7 @@ main: kit: entity: ticker: {
       type: "`$NUMBER`"
     }
     {
+      format: "date-time"
       name: "first_data_at"
       req: false
       short: "Date of first data availability"
@@ -30,6 +31,7 @@ main: kit: entity: ticker: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "last_updated"
       req: false
       short: "Last update timestamp"
@@ -98,8 +100,10 @@ main: kit: entity: ticker: {
           }
           method: "GET"
           orig: "/tickers"
-          parts: [
-            "tickers"
+          segments: [
+            {
+              lit: "tickers"
+            }
           ]
           select: {
             exist: [

@@ -94,6 +94,10 @@ class CoinpaprikaConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'coin',
           'op' => [
             'list' => [
@@ -105,13 +109,18 @@ class CoinpaprikaConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/coins',
-                  'parts' => [
-                    'coins',
+                  'segments' => [
+                    [
+                      'lit' => 'coins',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'coins',
                   ],
                 ],
               ],
@@ -134,6 +143,7 @@ class CoinpaprikaConfig
               'type' => '`$NUMBER`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'first_data_at',
               'short' => 'Date of first data availability',
               'type' => '`$STRING`',
@@ -144,6 +154,7 @@ class CoinpaprikaConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'last_updated',
               'short' => 'Last update timestamp',
               'type' => '`$STRING`',
@@ -179,6 +190,10 @@ class CoinpaprikaConfig
               'type' => '`$NUMBER`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'ticker',
           'op' => [
             'list' => [
@@ -200,8 +215,10 @@ class CoinpaprikaConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/tickers',
-                  'parts' => [
-                    'tickers',
+                  'segments' => [
+                    [
+                      'lit' => 'tickers',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -211,6 +228,9 @@ class CoinpaprikaConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'tickers',
                   ],
                 ],
               ],

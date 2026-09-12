@@ -1,0 +1,34 @@
+export interface Coin {
+    id?: string;
+    is_active?: boolean;
+    is_new?: boolean;
+    name?: string;
+    rank?: number;
+    symbol?: string;
+    type?: string;
+}
+export interface CoinListMatch {
+    id?: string;
+    is_active?: boolean;
+    is_new?: boolean;
+    name?: string;
+    rank?: number;
+    symbol?: string;
+    type?: string;
+}
+export interface Ticker {
+    beta_value?: number;
+    circulating_supply?: number;
+    first_data_at?: string;
+    id?: string;
+    last_updated?: string;
+    max_supply?: number;
+    name?: string;
+    quotes?: Record<string, any>;
+    rank?: number;
+    symbol?: string;
+    total_supply?: number;
+}
+export interface TickerListMatch {
+    quote?: string;
+}
