@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CoinpaprikaSDK } from '@voxgig-sdk/coinpaprika'
+import { CoinpaprikaSDK } from '@voxgig-sdk/coinpaprika-sdk'
 
 const client = new CoinpaprikaSDK()
 ```
@@ -469,7 +469,7 @@ coinpaprika/
 Import the SDK from the package root:
 
 ```ts
-import { CoinpaprikaSDK } from '@voxgig-sdk/coinpaprika'
+import { CoinpaprikaSDK } from '@voxgig-sdk/coinpaprika-sdk'
 ```
 
 ### Entity state

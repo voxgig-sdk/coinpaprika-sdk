@@ -105,7 +105,7 @@ local results, err = client:Coin():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/coinpaprika` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/releases) |
+| TypeScript | `@voxgig-sdk/coinpaprika-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/releases) |
 | Python | `voxgig-sdk-coinpaprika` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/releases) |
 | PHP | `voxgig-sdk/coinpaprika` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/coinpaprika-sdk/go` | `go get github.com/voxgig-sdk/coinpaprika-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Coin():list()
 ### TypeScript
 
 ```ts
-import { CoinpaprikaSDK } from '@voxgig-sdk/coinpaprika'
+import { CoinpaprikaSDK } from '@voxgig-sdk/coinpaprika-sdk'
 
 const client = new CoinpaprikaSDK()
 
