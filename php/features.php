@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Coinpaprika SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class CoinpaprikaFeatures
@@ -14,8 +17,14 @@ class CoinpaprikaFeatures
         switch ($name) {
             case "base":
                 return new CoinpaprikaBaseFeature();
+            case "ratelimit":
+                return new CoinpaprikaRatelimitFeature();
+            case "retry":
+                return new CoinpaprikaRetryFeature();
             case "test":
                 return new CoinpaprikaTestFeature();
+            case "timeout":
+                return new CoinpaprikaTimeoutFeature();
             default:
                 return new CoinpaprikaBaseFeature();
         }
@@ -31,7 +40,10 @@ class CoinpaprikaFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

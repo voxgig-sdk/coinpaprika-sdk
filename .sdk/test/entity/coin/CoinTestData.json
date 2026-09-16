@@ -6,7 +6,7 @@
         "is_active": false,
         "is_new": true,
         "name": "s49",
-        "rank": "s4a",
+        "rank": 74,
         "symbol": "s4b",
         "type": "s4c"
       },
@@ -15,7 +15,7 @@
         "is_active": false,
         "is_new": true,
         "name": "s8f",
-        "rank": "s90",
+        "rank": 144,
         "symbol": "s91",
         "type": "s92"
       },
@@ -24,7 +24,7 @@
         "is_active": false,
         "is_new": true,
         "name": "sd5",
-        "rank": "sd6",
+        "rank": 214,
         "symbol": "sd7",
         "type": "sd8"
       }
@@ -36,9 +36,108 @@
         "is_active": false,
         "is_new": true,
         "name": "s11b",
-        "rank": "s11c",
+        "rank": 284,
         "symbol": "s11d",
         "type": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "GET /coins": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCoins",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": "btc-bitcoin",
+                    "is_active": true,
+                    "is_new": false,
+                    "name": "Bitcoin",
+                    "rank": 1,
+                    "symbol": "BTC",
+                    "type": "coin"
+                  }
+                ],
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "description": "Unique identifier for the coin",
+                        "type": "string"
+                      },
+                      "is_active": {
+                        "description": "Indicates if the coin is active",
+                        "type": "boolean"
+                      },
+                      "is_new": {
+                        "description": "Indicates if the coin is new",
+                        "type": "boolean"
+                      },
+                      "name": {
+                        "description": "Name of the cryptocurrency",
+                        "type": "string"
+                      },
+                      "rank": {
+                        "description": "Market cap rank",
+                        "type": "integer"
+                      },
+                      "symbol": {
+                        "description": "Ticker symbol of the cryptocurrency",
+                        "type": "string"
+                      },
+                      "type": {
+                        "description": "Type of cryptocurrency (coin or token)",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response with list of coins"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Rate limit exceeded"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

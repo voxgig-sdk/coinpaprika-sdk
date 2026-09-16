@@ -1,12 +1,18 @@
 # Coinpaprika SDK feature factory
 
 from coinpaprika_sdk.feature.base_feature import CoinpaprikaBaseFeature
+from coinpaprika_sdk.feature.ratelimit_feature import CoinpaprikaRatelimitFeature
+from coinpaprika_sdk.feature.retry_feature import CoinpaprikaRetryFeature
 from coinpaprika_sdk.feature.test_feature import CoinpaprikaTestFeature
+from coinpaprika_sdk.feature.timeout_feature import CoinpaprikaTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: CoinpaprikaBaseFeature(),
+    "ratelimit": lambda: CoinpaprikaRatelimitFeature(),
+    "retry": lambda: CoinpaprikaRetryFeature(),
     "test": lambda: CoinpaprikaTestFeature(),
+    "timeout": lambda: CoinpaprikaTimeoutFeature(),
 }
 
 
