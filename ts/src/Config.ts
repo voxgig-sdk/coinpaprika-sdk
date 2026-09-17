@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      coin: {
-      },
-
-      ticker: {
-      },
-
+        coin: {
+        },
+  
+        ticker: {
+        },
+  
     }
   }
 

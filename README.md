@@ -105,12 +105,12 @@ local results, err = client:Coin():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/coinpaprika-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/releases) |
-| Python | `voxgig-sdk-coinpaprika` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/releases) |
-| PHP | `voxgig-sdk/coinpaprika` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/releases) |
+| TypeScript | `@voxgig-sdk/coinpaprika-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/tags) |
+| Python | `voxgig-sdk-coinpaprika` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/tags) |
+| PHP | `voxgig-sdk/coinpaprika` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/coinpaprika-sdk/go` | `go get github.com/voxgig-sdk/coinpaprika-sdk/go@latest` |
-| Ruby | `voxgig-sdk-coinpaprika` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/releases) |
-| Lua | `voxgig-sdk-coinpaprika` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/releases) |
+| Ruby | `voxgig-sdk-coinpaprika` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/tags) |
+| Lua | `voxgig-sdk-coinpaprika` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coinpaprika-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/coinpaprika-sdk/go-cli` | `go install github.com/voxgig-sdk/coinpaprika-sdk/go-cli/cmd/coinpaprika@latest` |
 | Go MCP server | `github.com/voxgig-sdk/coinpaprika-sdk/go-mcp` | `go get github.com/voxgig-sdk/coinpaprika-sdk/go-mcp@latest` |
 

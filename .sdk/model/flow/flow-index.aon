@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicCoinFlow.aon"
-@"BasicTickerFlow.aon"
+@"./BasicCoinFlow.aon"
+@"./BasicTickerFlow.aon"

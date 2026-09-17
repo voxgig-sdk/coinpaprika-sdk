@@ -1,4 +1,4 @@
 # Entity Models
 
-@"coin.aon"
-@"ticker.aon"
+@"./coin.aon"
+@"./ticker.aon"
