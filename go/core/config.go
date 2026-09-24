@@ -92,38 +92,45 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the coin",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the coin",
 					},
 					map[string]any{
 						"name": "is_active",
-						"short": "Indicates if the coin is active",
+						"title": "Is Active",
 						"type": "`$BOOLEAN`",
+						"short": "Indicates if the coin is active",
 					},
 					map[string]any{
 						"name": "is_new",
-						"short": "Indicates if the coin is new",
+						"title": "Is New",
 						"type": "`$BOOLEAN`",
+						"short": "Indicates if the coin is new",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the cryptocurrency",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the cryptocurrency",
 					},
 					map[string]any{
 						"name": "rank",
-						"short": "Market cap rank",
+						"title": "Rank",
 						"type": "`$INTEGER`",
+						"short": "Market cap rank",
 					},
 					map[string]any{
 						"name": "symbol",
-						"short": "Ticker symbol of the cryptocurrency",
+						"title": "Symbol",
 						"type": "`$STRING`",
+						"short": "Ticker symbol of the cryptocurrency",
 					},
 					map[string]any{
 						"name": "type",
-						"short": "Type of cryptocurrency (coin or token)",
+						"title": "Type",
 						"type": "`$STRING`",
+						"short": "Type of cryptocurrency (coin or token)",
 					},
 				},
 				"id": map[string]any{
@@ -137,7 +144,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/coins",
@@ -146,14 +152,16 @@ func MakeConfig() map[string]any {
 										"lit": "coins",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"coins",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"coins",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -166,60 +174,71 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "beta_value",
-						"short": "Beta value for the coin",
+						"title": "Beta Value",
 						"type": "`$NUMBER`",
+						"short": "Beta value for the coin",
 					},
 					map[string]any{
 						"name": "circulating_supply",
-						"short": "Circulating supply of the coin",
+						"title": "Circulating Supply",
 						"type": "`$NUMBER`",
+						"short": "Circulating supply of the coin",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "first_data_at",
-						"short": "Date of first data availability",
+						"title": "First Data At",
 						"type": "`$STRING`",
+						"short": "Date of first data availability",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the coin",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the coin",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "last_updated",
-						"short": "Last update timestamp",
+						"title": "Last Updated",
 						"type": "`$STRING`",
+						"short": "Last update timestamp",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "max_supply",
-						"short": "Maximum supply of the coin",
+						"title": "Max Supply",
 						"type": "`$NUMBER`",
+						"short": "Maximum supply of the coin",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the cryptocurrency",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the cryptocurrency",
 					},
 					map[string]any{
 						"name": "quotes",
-						"short": "Price and market data in different quote currencies",
+						"title": "Quotes",
 						"type": "`$OBJECT`",
+						"short": "Price and market data in different quote currencies",
 					},
 					map[string]any{
 						"name": "rank",
-						"short": "Market cap rank",
+						"title": "Rank",
 						"type": "`$INTEGER`",
+						"short": "Market cap rank",
 					},
 					map[string]any{
 						"name": "symbol",
-						"short": "Ticker symbol of the cryptocurrency",
+						"title": "Symbol",
 						"type": "`$STRING`",
+						"short": "Ticker symbol of the cryptocurrency",
 					},
 					map[string]any{
 						"name": "total_supply",
-						"short": "Total supply of the coin",
+						"title": "Total Supply",
 						"type": "`$NUMBER`",
+						"short": "Total supply of the coin",
 					},
 				},
 				"id": map[string]any{
@@ -233,17 +252,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "USD",
-											"kind": "query",
-											"name": "quote",
-											"orig": "quote",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/tickers",
@@ -252,17 +260,29 @@ func MakeConfig() map[string]any {
 										"lit": "tickers",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"quote",
-									},
+								"parts": []any{
+									"tickers",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"tickers",
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "quote",
+											"orig": "quote",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "USD",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"quote",
+									},
 								},
 							},
 						},

@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CoinEntity = void 0;
 const CoinpaprikaEntityBase_1 = require("../CoinpaprikaEntityBase");
-// TODO: needs Entity superclass
 class CoinEntity extends CoinpaprikaEntityBase_1.CoinpaprikaEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

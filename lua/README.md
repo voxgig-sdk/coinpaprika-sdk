@@ -43,7 +43,7 @@ local coins, err = client:Coin():list()
 if err then error(err) end
 
 for _, item in ipairs(coins) do
-  print(item["id"], item["name"])
+  print(item["id"])
 end
 ```
 

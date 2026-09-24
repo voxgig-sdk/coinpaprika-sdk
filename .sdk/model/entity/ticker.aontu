@@ -1,0 +1,140 @@
+# Entity: ticker
+
+main: kit: entity: ticker: {
+
+  alias: field: {}
+
+  fields: {
+    beta_value: {
+      h: "Beta Value"
+      n: "beta_value"
+      r: false
+      sh: "Beta value for the coin"
+      t: "`$NUMBER`"
+    }
+    circulating_supply: {
+      h: "Circulating Supply"
+      n: "circulating_supply"
+      r: false
+      sh: "Circulating supply of the coin"
+      t: "`$NUMBER`"
+    }
+    first_data_at: {
+      fo: "date-time"
+      h: "First Data At"
+      n: "first_data_at"
+      r: false
+      sh: "Date of first data availability"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the coin"
+      t: "`$STRING`"
+    }
+    last_updated: {
+      fo: "date-time"
+      h: "Last Updated"
+      n: "last_updated"
+      r: false
+      sh: "Last update timestamp"
+      t: "`$STRING`"
+    }
+    max_supply: {
+      h: "Max Supply"
+      n: "max_supply"
+      r: false
+      sh: "Maximum supply of the coin"
+      t: "`$NUMBER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the cryptocurrency"
+      t: "`$STRING`"
+    }
+    quotes: {
+      h: "Quotes"
+      n: "quotes"
+      r: false
+      sh: "Price and market data in different quote currencies"
+      t: "`$OBJECT`"
+    }
+    rank: {
+      h: "Rank"
+      n: "rank"
+      r: false
+      sh: "Market cap rank"
+      t: "`$INTEGER`"
+    }
+    symbol: {
+      h: "Symbol"
+      n: "symbol"
+      r: false
+      sh: "Ticker symbol of the cryptocurrency"
+      t: "`$STRING`"
+    }
+    total_supply: {
+      h: "Total Supply"
+      n: "total_supply"
+      r: false
+      sh: "Total supply of the coin"
+      t: "`$NUMBER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "ticker"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /tickers"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "USD"
+                k: "query"
+                n: "quote"
+                or: "quote"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/tickers"
+          q: {
+            exist: [
+              "quote"
+            ]
+          }
+          s: [
+            {
+              lit: "tickers"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

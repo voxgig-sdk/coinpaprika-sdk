@@ -24,63 +24,136 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "coin": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the coin",
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the coin",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "is_active",
-              "req": false,
-              "short": "Indicates if the coin is active",
-              "type": "`$BOOLEAN`"
+            "is_active": {
+              "a": true,
+              "h": "Is Active",
+              "n": "is_active",
+              "r": false,
+              "sh": "Indicates if the coin is active",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "is_new",
-              "req": false,
-              "short": "Indicates if the coin is new",
-              "type": "`$BOOLEAN`"
+            "is_new": {
+              "a": true,
+              "h": "Is New",
+              "n": "is_new",
+              "r": false,
+              "sh": "Indicates if the coin is new",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Name of the cryptocurrency",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Name of the cryptocurrency",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "rank",
-              "req": false,
-              "short": "Market cap rank",
-              "type": "`$INTEGER`"
+            "rank": {
+              "a": true,
+              "h": "Rank",
+              "n": "rank",
+              "r": false,
+              "sh": "Market cap rank",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "symbol",
-              "req": false,
-              "short": "Ticker symbol of the cryptocurrency",
-              "type": "`$STRING`"
+            "symbol": {
+              "a": true,
+              "h": "Symbol",
+              "n": "symbol",
+              "r": false,
+              "sh": "Ticker symbol of the cryptocurrency",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": false,
-              "short": "Type of cryptocurrency (coin or token)",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "sh": "Type of cryptocurrency (coin or token)",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -92,24 +165,24 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /coins",
-                    "json": "{\"operationId\":\"getCoins\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":[{\"id\":\"btc-bitcoin\",\"is_active\":true,\"is_new\":false,\"name\":\"Bitcoin\",\"rank\":1,\"symbol\":\"BTC\",\"type\":\"coin\"}],\"schema\":{\"items\":{\"properties\":{\"id\":{\"description\":\"Unique identifier for the coin\",\"type\":\"string\"},\"is_active\":{\"description\":\"Indicates if the coin is active\",\"type\":\"boolean\"},\"is_new\":{\"description\":\"Indicates if the coin is new\",\"type\":\"boolean\"},\"name\":{\"description\":\"Name of the cryptocurrency\",\"type\":\"string\"},\"rank\":{\"description\":\"Market cap rank\",\"type\":\"integer\"},\"symbol\":{\"description\":\"Ticker symbol of the cryptocurrency\",\"type\":\"string\"},\"type\":{\"description\":\"Type of cryptocurrency (coin or token)\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with list of coins\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/coins",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/coins",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "coins"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -126,87 +199,98 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "beta_value",
-              "req": false,
-              "short": "Beta value for the coin",
-              "type": "`$NUMBER`"
+          "fields": {
+            "beta_value": {
+              "a": true,
+              "h": "Beta Value",
+              "n": "beta_value",
+              "r": false,
+              "sh": "Beta value for the coin",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "circulating_supply",
-              "req": false,
-              "short": "Circulating supply of the coin",
-              "type": "`$NUMBER`"
+            "circulating_supply": {
+              "a": true,
+              "h": "Circulating Supply",
+              "n": "circulating_supply",
+              "r": false,
+              "sh": "Circulating supply of the coin",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "first_data_at",
-              "req": false,
-              "short": "Date of first data availability",
-              "type": "`$STRING`"
+            "first_data_at": {
+              "a": true,
+              "fo": "date-time",
+              "h": "First Data At",
+              "n": "first_data_at",
+              "r": false,
+              "sh": "Date of first data availability",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the coin",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the coin",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "last_updated",
-              "req": false,
-              "short": "Last update timestamp",
-              "type": "`$STRING`"
+            "last_updated": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Last Updated",
+              "n": "last_updated",
+              "r": false,
+              "sh": "Last update timestamp",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "max_supply",
-              "req": false,
-              "short": "Maximum supply of the coin",
-              "type": "`$NUMBER`"
+            "max_supply": {
+              "a": true,
+              "h": "Max Supply",
+              "n": "max_supply",
+              "r": false,
+              "sh": "Maximum supply of the coin",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Name of the cryptocurrency",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Name of the cryptocurrency",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "quotes",
-              "req": false,
-              "short": "Price and market data in different quote currencies",
-              "type": "`$OBJECT`"
+            "quotes": {
+              "a": true,
+              "h": "Quotes",
+              "n": "quotes",
+              "r": false,
+              "sh": "Price and market data in different quote currencies",
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "rank",
-              "req": false,
-              "short": "Market cap rank",
-              "type": "`$INTEGER`"
+            "rank": {
+              "a": true,
+              "h": "Rank",
+              "n": "rank",
+              "r": false,
+              "sh": "Market cap rank",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "symbol",
-              "req": false,
-              "short": "Ticker symbol of the cryptocurrency",
-              "type": "`$STRING`"
+            "symbol": {
+              "a": true,
+              "h": "Symbol",
+              "n": "symbol",
+              "r": false,
+              "sh": "Ticker symbol of the cryptocurrency",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "total_supply",
-              "req": false,
-              "short": "Total supply of the coin",
-              "type": "`$NUMBER`"
+            "total_supply": {
+              "a": true,
+              "h": "Total Supply",
+              "n": "total_supply",
+              "r": false,
+              "sh": "Total supply of the coin",
+              "t": "`$NUMBER`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -218,40 +302,40 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /tickers",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "USD",
-                        "kind": "query",
-                        "name": "quote",
-                        "orig": "quote",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "USD",
+                        "k": "query",
+                        "n": "quote",
+                        "or": "quote",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /tickers",
-                    "json": "{\"operationId\":\"getTickers\",\"parameters\":[{\"description\":\"Comma separated list of quotes to return (e.g., USD,BTC,ETH)\",\"in\":\"query\",\"name\":\"quotes\",\"required\":false,\"schema\":{\"default\":\"USD\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":[{\"beta_value\":1,\"circulating_supply\":19000000,\"first_data_at\":\"2010-07-17T00:00:00Z\",\"id\":\"btc-bitcoin\",\"last_updated\":\"2023-10-01T12:00:00Z\",\"max_supply\":21000000,\"name\":\"Bitcoin\",\"quotes\":{\"USD\":{\"ath_date\":\"2021-11-10T00:00:00Z\",\"ath_price\":69000,\"market_cap\":950000000000,\"market_cap_change_24h\":2.3,\"percent_change_12h\":3.1,\"percent_change_15m\":0.5,\"percent_change_1h\":1.2,\"percent_change_1y\":120.5,\"percent_change_24h\":4.5,\"percent_change_30d\":15.3,\"percent_change_30m\":0.8,\"percent_change_6h\":2.5,\"percent_change_7d\":8.2,\"percent_from_price_ath\":-27.5,\"price\":50000,\"volume_24h\":30000000000,\"volume_24h_change_24h\":5.5}},\"rank\":1,\"symbol\":\"BTC\",\"total_supply\":21000000}],\"schema\":{\"items\":{\"properties\":{\"beta_value\":{\"description\":\"Beta value for the coin\",\"type\":\"number\"},\"circulating_supply\":{\"description\":\"Circulating supply of the coin\",\"type\":\"number\"},\"first_data_at\":{\"description\":\"Date of first data availability\",\"format\":\"date-time\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the coin\",\"type\":\"string\"},\"last_updated\":{\"description\":\"Last update timestamp\",\"format\":\"date-time\",\"type\":\"string\"},\"max_supply\":{\"description\":\"Maximum supply of the coin\",\"nullable\":true,\"type\":\"number\"},\"name\":{\"description\":\"Name of the cryptocurrency\",\"type\":\"string\"},\"quotes\":{\"additionalProperties\":{\"properties\":{\"ath_date\":{\"description\":\"Date of all-time high\",\"format\":\"date-time\",\"nullable\":true,\"type\":\"string\"},\"ath_price\":{\"description\":\"All-time high price\",\"nullable\":true,\"type\":\"number\"},\"market_cap\":{\"description\":\"Market capitalization\",\"type\":\"number\"},\"market_cap_change_24h\":{\"description\":\"24-hour market cap change percentage\",\"type\":\"number\"},\"percent_change_12h\":{\"description\":\"Price change percentage in last 12 hours\",\"type\":\"number\"},\"percent_change_15m\":{\"description\":\"Price change percentage in last 15 minutes\",\"type\":\"number\"},\"percent_change_1h\":{\"description\":\"Price change percentage in last 1 hour\",\"type\":\"number\"},\"percent_change_1y\":{\"description\":\"Price change percentage in last 1 year\",\"type\":\"number\"},\"percent_change_24h\":{\"description\":\"Price change percentage in last 24 hours\",\"type\":\"number\"},\"percent_change_30d\":{\"description\":\"Price change percentage in last 30 days\",\"type\":\"number\"},\"percent_change_30m\":{\"description\":\"Price change percentage in last 30 minutes\",\"type\":\"number\"},\"percent_change_6h\":{\"description\":\"Price change percentage in last 6 hours\",\"type\":\"number\"},\"percent_change_7d\":{\"description\":\"Price change percentage in last 7 days\",\"type\":\"number\"},\"percent_from_price_ath\":{\"description\":\"Percentage from all-time high price\",\"nullable\":true,\"type\":\"number\"},\"price\":{\"description\":\"Current price\",\"type\":\"number\"},\"volume_24h\":{\"description\":\"24-hour trading volume\",\"type\":\"number\"},\"volume_24h_change_24h\":{\"description\":\"24-hour volume change percentage\",\"type\":\"number\"}},\"type\":\"object\"},\"description\":\"Price and market data in different quote currencies\",\"type\":\"object\"},\"rank\":{\"description\":\"Market cap rank\",\"type\":\"integer\"},\"symbol\":{\"description\":\"Ticker symbol of the cryptocurrency\",\"type\":\"string\"},\"total_supply\":{\"description\":\"Total supply of the coin\",\"type\":\"number\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with ticker data for all coins\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - Invalid parameters\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/tickers",
-                  "segments": [
-                    {
-                      "lit": "tickers"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/tickers",
+                  "q": {
                     "exist": [
                       "quote"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "tickers"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -680,13 +764,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -706,13 +790,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

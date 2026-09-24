@@ -1,0 +1,22 @@
+# BasicTickerFlow
+
+main: kit: flow: BasicTickerFlow:
+{
+  entity: "ticker",
+  kind: "basic",
+  name: "BasicTickerFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "ticker_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTickerFlow"
+}

@@ -19,7 +19,6 @@ import type {
   CoinListMatch,
 } from '../CoinpaprikaTypes'
 
-// TODO: needs Entity superclass
 class CoinEntity extends CoinpaprikaEntityBase<Coin> {
 
   constructor(client: CoinpaprikaSDK, entopts: any) {

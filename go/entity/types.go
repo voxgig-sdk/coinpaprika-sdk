@@ -1,7 +1,7 @@
 // Typed models for the Coinpaprika SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,13 +14,6 @@ import (
 
 // Coin is the typed data model for the coin entity.
 type Coin struct {
-	Id *string `json:"id,omitempty"`
-	IsActive *bool `json:"is_active,omitempty"`
-	IsNew *bool `json:"is_new,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Rank *int `json:"rank,omitempty"`
-	Symbol *string `json:"symbol,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // CoinListMatch is the typed request payload for Coin.ListTyped.
@@ -36,17 +29,6 @@ type CoinListMatch struct {
 
 // Ticker is the typed data model for the ticker entity.
 type Ticker struct {
-	BetaValue *float64 `json:"beta_value,omitempty"`
-	CirculatingSupply *float64 `json:"circulating_supply,omitempty"`
-	FirstDataAt *string `json:"first_data_at,omitempty"`
-	Id *string `json:"id,omitempty"`
-	LastUpdated *string `json:"last_updated,omitempty"`
-	MaxSupply *float64 `json:"max_supply,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Quotes *map[string]any `json:"quotes,omitempty"`
-	Rank *int `json:"rank,omitempty"`
-	Symbol *string `json:"symbol,omitempty"`
-	TotalSupply *float64 `json:"total_supply,omitempty"`
 }
 
 // TickerListMatch is the typed request payload for Ticker.ListTyped.

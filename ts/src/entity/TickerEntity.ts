@@ -19,7 +19,6 @@ import type {
   TickerListMatch,
 } from '../CoinpaprikaTypes'
 
-// TODO: needs Entity superclass
 class TickerEntity extends CoinpaprikaEntityBase<Ticker> {
 
   constructor(client: CoinpaprikaSDK, entopts: any) {

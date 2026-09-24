@@ -117,38 +117,45 @@ def make_config():
         "fields": [
           {
             "name": "id",
-            "short": "Unique identifier for the coin",
+            "title": "Id",
             "type": "`$STRING`",
+            "short": "Unique identifier for the coin",
           },
           {
             "name": "is_active",
-            "short": "Indicates if the coin is active",
+            "title": "Is Active",
             "type": "`$BOOLEAN`",
+            "short": "Indicates if the coin is active",
           },
           {
             "name": "is_new",
-            "short": "Indicates if the coin is new",
+            "title": "Is New",
             "type": "`$BOOLEAN`",
+            "short": "Indicates if the coin is new",
           },
           {
             "name": "name",
-            "short": "Name of the cryptocurrency",
+            "title": "Name",
             "type": "`$STRING`",
+            "short": "Name of the cryptocurrency",
           },
           {
             "name": "rank",
-            "short": "Market cap rank",
+            "title": "Rank",
             "type": "`$INTEGER`",
+            "short": "Market cap rank",
           },
           {
             "name": "symbol",
-            "short": "Ticker symbol of the cryptocurrency",
+            "title": "Symbol",
             "type": "`$STRING`",
+            "short": "Ticker symbol of the cryptocurrency",
           },
           {
             "name": "type",
-            "short": "Type of cryptocurrency (coin or token)",
+            "title": "Type",
             "type": "`$STRING`",
+            "short": "Type of cryptocurrency (coin or token)",
           },
         ],
         "id": {
@@ -162,7 +169,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/coins",
@@ -171,14 +177,16 @@ def make_config():
                     "lit": "coins",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "coins",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "coins",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -191,60 +199,71 @@ def make_config():
         "fields": [
           {
             "name": "beta_value",
-            "short": "Beta value for the coin",
+            "title": "Beta Value",
             "type": "`$NUMBER`",
+            "short": "Beta value for the coin",
           },
           {
             "name": "circulating_supply",
-            "short": "Circulating supply of the coin",
+            "title": "Circulating Supply",
             "type": "`$NUMBER`",
+            "short": "Circulating supply of the coin",
           },
           {
-            "format": "date-time",
             "name": "first_data_at",
-            "short": "Date of first data availability",
+            "title": "First Data At",
             "type": "`$STRING`",
+            "short": "Date of first data availability",
+            "format": "date-time",
           },
           {
             "name": "id",
-            "short": "Unique identifier for the coin",
+            "title": "Id",
             "type": "`$STRING`",
+            "short": "Unique identifier for the coin",
           },
           {
-            "format": "date-time",
             "name": "last_updated",
-            "short": "Last update timestamp",
+            "title": "Last Updated",
             "type": "`$STRING`",
+            "short": "Last update timestamp",
+            "format": "date-time",
           },
           {
             "name": "max_supply",
-            "short": "Maximum supply of the coin",
+            "title": "Max Supply",
             "type": "`$NUMBER`",
+            "short": "Maximum supply of the coin",
           },
           {
             "name": "name",
-            "short": "Name of the cryptocurrency",
+            "title": "Name",
             "type": "`$STRING`",
+            "short": "Name of the cryptocurrency",
           },
           {
             "name": "quotes",
-            "short": "Price and market data in different quote currencies",
+            "title": "Quotes",
             "type": "`$OBJECT`",
+            "short": "Price and market data in different quote currencies",
           },
           {
             "name": "rank",
-            "short": "Market cap rank",
+            "title": "Rank",
             "type": "`$INTEGER`",
+            "short": "Market cap rank",
           },
           {
             "name": "symbol",
-            "short": "Ticker symbol of the cryptocurrency",
+            "title": "Symbol",
             "type": "`$STRING`",
+            "short": "Ticker symbol of the cryptocurrency",
           },
           {
             "name": "total_supply",
-            "short": "Total supply of the coin",
+            "title": "Total Supply",
             "type": "`$NUMBER`",
+            "short": "Total supply of the coin",
           },
         ],
         "id": {
@@ -258,17 +277,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "USD",
-                      "kind": "query",
-                      "name": "quote",
-                      "orig": "quote",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/tickers",
@@ -277,18 +285,30 @@ def make_config():
                     "lit": "tickers",
                   },
                 ],
+                "parts": [
+                  "tickers",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "quote",
+                      "orig": "quote",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "USD",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "quote",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "tickers",
-                ],
               },
             ],
           },

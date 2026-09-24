@@ -1,0 +1,93 @@
+# Entity: coin
+
+main: kit: entity: coin: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the coin"
+      t: "`$STRING`"
+    }
+    is_active: {
+      h: "Is Active"
+      n: "is_active"
+      r: false
+      sh: "Indicates if the coin is active"
+      t: "`$BOOLEAN`"
+    }
+    is_new: {
+      h: "Is New"
+      n: "is_new"
+      r: false
+      sh: "Indicates if the coin is new"
+      t: "`$BOOLEAN`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the cryptocurrency"
+      t: "`$STRING`"
+    }
+    rank: {
+      h: "Rank"
+      n: "rank"
+      r: false
+      sh: "Market cap rank"
+      t: "`$INTEGER`"
+    }
+    symbol: {
+      h: "Symbol"
+      n: "symbol"
+      r: false
+      sh: "Ticker symbol of the cryptocurrency"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "Type of cryptocurrency (coin or token)"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "coin"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /coins"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/coins"
+          s: [
+            {
+              lit: "coins"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

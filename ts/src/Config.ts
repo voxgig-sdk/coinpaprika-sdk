@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -142,38 +135,45 @@ class Config {
       "fields": [
         {
           "name": "id",
-          "short": "Unique identifier for the coin",
-          "type": "`$STRING`"
+          "title": "Id",
+          "type": "`$STRING`",
+          "short": "Unique identifier for the coin"
         },
         {
           "name": "is_active",
-          "short": "Indicates if the coin is active",
-          "type": "`$BOOLEAN`"
+          "title": "Is Active",
+          "type": "`$BOOLEAN`",
+          "short": "Indicates if the coin is active"
         },
         {
           "name": "is_new",
-          "short": "Indicates if the coin is new",
-          "type": "`$BOOLEAN`"
+          "title": "Is New",
+          "type": "`$BOOLEAN`",
+          "short": "Indicates if the coin is new"
         },
         {
           "name": "name",
-          "short": "Name of the cryptocurrency",
-          "type": "`$STRING`"
+          "title": "Name",
+          "type": "`$STRING`",
+          "short": "Name of the cryptocurrency"
         },
         {
           "name": "rank",
-          "short": "Market cap rank",
-          "type": "`$INTEGER`"
+          "title": "Rank",
+          "type": "`$INTEGER`",
+          "short": "Market cap rank"
         },
         {
           "name": "symbol",
-          "short": "Ticker symbol of the cryptocurrency",
-          "type": "`$STRING`"
+          "title": "Symbol",
+          "type": "`$STRING`",
+          "short": "Ticker symbol of the cryptocurrency"
         },
         {
           "name": "type",
-          "short": "Type of cryptocurrency (coin or token)",
-          "type": "`$STRING`"
+          "title": "Type",
+          "type": "`$STRING`",
+          "short": "Type of cryptocurrency (coin or token)"
         }
       ],
       "id": {
@@ -187,7 +187,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/coins",
@@ -196,14 +195,16 @@ class Config {
                   "lit": "coins"
                 }
               ],
-              "select": {},
+              "parts": [
+                "coins"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "coins"
-              ]
+              "args": {},
+              "select": {}
             }
           ]
         }
@@ -216,60 +217,71 @@ class Config {
       "fields": [
         {
           "name": "beta_value",
-          "short": "Beta value for the coin",
-          "type": "`$NUMBER`"
+          "title": "Beta Value",
+          "type": "`$NUMBER`",
+          "short": "Beta value for the coin"
         },
         {
           "name": "circulating_supply",
-          "short": "Circulating supply of the coin",
-          "type": "`$NUMBER`"
+          "title": "Circulating Supply",
+          "type": "`$NUMBER`",
+          "short": "Circulating supply of the coin"
         },
         {
-          "format": "date-time",
           "name": "first_data_at",
+          "title": "First Data At",
+          "type": "`$STRING`",
           "short": "Date of first data availability",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "id",
-          "short": "Unique identifier for the coin",
-          "type": "`$STRING`"
+          "title": "Id",
+          "type": "`$STRING`",
+          "short": "Unique identifier for the coin"
         },
         {
-          "format": "date-time",
           "name": "last_updated",
+          "title": "Last Updated",
+          "type": "`$STRING`",
           "short": "Last update timestamp",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "max_supply",
-          "short": "Maximum supply of the coin",
-          "type": "`$NUMBER`"
+          "title": "Max Supply",
+          "type": "`$NUMBER`",
+          "short": "Maximum supply of the coin"
         },
         {
           "name": "name",
-          "short": "Name of the cryptocurrency",
-          "type": "`$STRING`"
+          "title": "Name",
+          "type": "`$STRING`",
+          "short": "Name of the cryptocurrency"
         },
         {
           "name": "quotes",
-          "short": "Price and market data in different quote currencies",
-          "type": "`$OBJECT`"
+          "title": "Quotes",
+          "type": "`$OBJECT`",
+          "short": "Price and market data in different quote currencies"
         },
         {
           "name": "rank",
-          "short": "Market cap rank",
-          "type": "`$INTEGER`"
+          "title": "Rank",
+          "type": "`$INTEGER`",
+          "short": "Market cap rank"
         },
         {
           "name": "symbol",
-          "short": "Ticker symbol of the cryptocurrency",
-          "type": "`$STRING`"
+          "title": "Symbol",
+          "type": "`$STRING`",
+          "short": "Ticker symbol of the cryptocurrency"
         },
         {
           "name": "total_supply",
-          "short": "Total supply of the coin",
-          "type": "`$NUMBER`"
+          "title": "Total Supply",
+          "type": "`$NUMBER`",
+          "short": "Total supply of the coin"
         }
       ],
       "id": {
@@ -283,17 +295,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "USD",
-                    "kind": "query",
-                    "name": "quote",
-                    "orig": "quote",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/tickers",
@@ -302,18 +303,30 @@ class Config {
                   "lit": "tickers"
                 }
               ],
-              "select": {
-                "exist": [
-                  "quote"
-                ]
-              },
+              "parts": [
+                "tickers"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "tickers"
-              ]
+              "args": {
+                "query": [
+                  {
+                    "name": "quote",
+                    "orig": "quote",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "USD"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "quote"
+                ]
+              }
             }
           ]
         }
